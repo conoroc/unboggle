@@ -1,5 +1,57 @@
-<h1>New resource</h1>
+<% provide(:title, "Sign in") %>
 
-<%= render 'form' %>
+<div class="span6 offset3">
+  <div class="hero-unit opaque">
+    <h1>New resource</h1>
 
-<%= link_to 'Back', resources_path %>
+
+    <%= form_for(@resource) do |f| %>
+        <%#= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :user_id %>
+        <%= f.number_field :user_id %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :source %>
+        <%= f.text_field :source %>
+
+        <%= f.label :categ_a %>
+        <%= f.text_field :categ_a %>
+
+        <%= f.label :categ_b %>
+        <%= f.text_field :categ_b %>
+
+        <%= f.label :level %>
+        <%= f.text_field :level %>
+
+        <%= f.label :year %>
+        <%= f.number_field :year %>
+
+        <%= f.label :cost %>
+        <%= f.text_field :cost %>
+
+        <%= f.label :medium %>
+        <%= f.text_field :medium %>
+
+        <%= f.label :rating %>
+        <%= f.number_field :rating %>
+
+        <%= f.label :link %>
+        <%= f.text_field :link %>
+
+        <%= f.label :keywords %>
+        <%= f.text_field :keywords %>
+
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+
+
+        <%= f.submit "Add Resource", class: "btn btn-primary" %>
+
+    <% end %>
+
+
+  </div>
+</div>

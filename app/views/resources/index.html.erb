@@ -1,48 +1,48 @@
 <% provide(:title, 'Resources') %>
-<h1>Listing resources</h1>
+<div class="row">
+  <aside class="span2">
+<%= render 'layouts/side_nav' %>
+    </aside>
+  <div class="span10 opaque">
+    <h1>Listing resources</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Source</th>
-    <th>Categ a</th>
-    <th>Categ b</th>
-    <th>Level</th>
-    <th>Year</th>
-    <th>Cost</th>
-    <th>Type</th>
-    <th>Rating</th>
-    <th>Link</th>
-    <th>Keywords</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th>User</th>
+        <th>Title</th>
+        <th>Source</th>
+        <th>Category</th>
+        <th>Level</th>
+        <th>Year</th>
+        <th>Cost</th>
+        <th>Medium</th>
+        <th>Rating</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% @resources.each do |resource| %>
-  <tr>
-    <td><%= resource.user_id %></td>
-    <td><%= resource.title %></td>
-    <td><%= resource.source %></td>
-    <td><%= resource.categ_a %></td>
-    <td><%= resource.categ_b %></td>
-    <td><%= resource.level %></td>
-    <td><%= resource.year %></td>
-    <td><%= resource.cost %></td>
-    <td><%= resource.type %></td>
-    <td><%= resource.rating %></td>
-    <td><%= resource.link %></td>
-    <td><%= resource.keywords %></td>
-    <td><%= resource.description %></td>
-    <td><%= link_to 'Show', resource %></td>
-    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-    <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+      <% @resources.each do |resource| %>
+          <tr>
+            <td><%= resource.user_id %></td>
+            <td><%= link_to resource.title, resource %></td>
+            <td><%= resource.source %></td>
+            <td><%= resource.categ_b %></td>
+            <td><%= resource.level %></td>
+            <td><%= resource.year %></td>
+            <td><%= resource.cost %></td>
+            <td><%= resource.medium %></td>
+            <td><%= resource.rating %></td>
+            <td><%= resource.description.truncate(20) %></td>
+            <td><%= link_to 'Show', resource %></td>
+            <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+            <td><%= link_to 'Destroy', resource, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br/>
 
-<br />
-
-<%= link_to 'New Resource', new_resource_path %>
+    <%= link_to 'New Resource', new_resource_path %>
+  </div>
+  </div>

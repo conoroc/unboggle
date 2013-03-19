@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308003702) do
+ActiveRecord::Schema.define(:version => 20130319001943) do
 
   create_table "comments", :force => true do |t|
     t.integer  "resource_id"
     t.text     "content"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "resources", :force => true do |t|
     t.integer  "user_id"
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20130308003702) do
     t.string   "level"
     t.integer  "year"
     t.string   "cost"
-    t.string   "type"
+    t.string   "medium"
     t.integer  "rating"
     t.string   "link"
     t.string   "keywords"
@@ -48,8 +51,10 @@ ActiveRecord::Schema.define(:version => 20130308003702) do
     t.datetime "updated_at",                            :null => false
     t.string   "account",         :default => "member"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

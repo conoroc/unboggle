@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @comment = Comment.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @comment }
@@ -39,16 +38,21 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
-  def create
-    @comment = Comment.new(params[:comment])
 
+  def create
+    @resource = Resource.find(params[:resource_id])
+    @comment = @resource.comments.build(params[:comment])
+    @comment.user_id = current_user.id
+
+   # @comment = current_user.comments.build(:resource => @resource)
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+        format.html { redirect_to(@resource, :notice => 'Comment was successfully created.') }
+        format.xml  { render :xml => @resource, :status => :created, :location => @resource }
       else
-        format.html { render action: "new" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { redirect_to(@resource, :notice =>
+            'Comment could not be saved. Please fill in all fields')}
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -71,13 +75,15 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
+
   def destroy
     @comment = Comment.find(params[:id])
+    @resource = Resource.find(params[:resource_id])
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
+      format.html { redirect_to(@resource, :notice => 'Comment was successfully deleted.') }
+      format.xml  { head :ok }
     end
   end
 end

@@ -1,12 +1,21 @@
 Unboggle::Application.routes.draw do
-  resources :comments
-
-
-  resources :resources
-
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :resources do
+    resources :comments
+  end
 
+
+  root to: 'welcome#home'
+
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+  match '/help', to: 'static_pages#help'
+  match '/about', to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -57,7 +66,7 @@ Unboggle::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#home'
+
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,70 +1,69 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Resources') %>
+<div class="row">
+  <aside class="span2">
+    <%= render 'layouts/side_nav' %>
+  </aside>
+  <div class="span10 opaque">
+    <ul class="breadcrumb">
+      <li><a href="#">Home</a> <span class="divider">/</span></li>
+      <li><a href="#">Library</a> <span class="divider">/</span></li>
+      <li class="active"><%= @resource.title %></li>
+    </ul>
+    <div class="span9">
 
-<p>
-  <b>User:</b>
-  <%= @resource.user_id %>
-</p>
+      <p>
+        <b>Title:</b>
+        <%= @resource.title %>
+      </p>
 
-<p>
-  <b>Title:</b>
-  <%= @resource.title %>
-</p>
+      <p>
+        <b>Source:</b>
+        <%= @resource.source %>
+      </p>
 
-<p>
-  <b>Source:</b>
-  <%= @resource.source %>
-</p>
+      <p>
+        <b>Category:</b>
+        <%= @resource.categ_b %>
+      </p>
 
-<p>
-  <b>Categ a:</b>
-  <%= @resource.categ_a %>
-</p>
+      <p>
+        <b>Level:</b>
+        <%= @resource.level %>
+      </p>
 
-<p>
-  <b>Categ b:</b>
-  <%= @resource.categ_b %>
-</p>
+      <p>
+        <b>Year:</b>
+        <%= @resource.year %>
+      </p>
 
-<p>
-  <b>Level:</b>
-  <%= @resource.level %>
-</p>
+      <p>
+        <b>Cost:</b>
+        <%= @resource.cost %>
+      </p>
 
-<p>
-  <b>Year:</b>
-  <%= @resource.year %>
-</p>
+      <p>
+        <b>Medium:</b>
+        <%= @resource.medium %>
+      </p>
 
-<p>
-  <b>Cost:</b>
-  <%= @resource.cost %>
-</p>
+      <p>
+        <b>Rating:</b>
+        <%= @resource.rating %>
+      </p>
 
-<p>
-  <b>Type:</b>
-  <%= @resource.type %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= @resource.rating %>
-</p>
-
-<p>
-  <b>Link:</b>
-  <%= @resource.link %>
-</p>
-
-<p>
-  <b>Keywords:</b>
-  <%= @resource.keywords %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @resource.description %>
-</p>
+      <p>
+        <b>Description:</b>
+        <%= @resource.description %>
+      </p>
 
 
-<%= link_to 'Edit', edit_resource_path(@resource) %> |
-<%= link_to 'Back', resources_path %>
+      <%= link_to 'Edit', edit_resource_path(@resource) %> |
+      <%= link_to 'Back', resources_path %>
+
+
+    </div>
+
+    <%= render 'comments' %>
+  </div>
+
+</div>
