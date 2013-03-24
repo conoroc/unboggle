@@ -1,5 +1,11 @@
 Unboggle::Application.routes.draw do
 
+  resources :categories
+
+  resources :categories do
+    resources :resources
+  end
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :resources do

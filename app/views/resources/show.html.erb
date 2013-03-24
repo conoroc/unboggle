@@ -5,15 +5,15 @@
   </aside>
   <div class="span10 opaque">
     <ul class="breadcrumb">
-      <li><a href="#">Home</a> <span class="divider">/</span></li>
-      <li><a href="#">Library</a> <span class="divider">/</span></li>
+      <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+      <li><%= link_to @resource.category.name, category_path(@resource.category.id) %> <span class="divider">/</span></li>
       <li class="active"><%= @resource.title %></li>
     </ul>
     <div class="span9">
 
       <p>
         <b>Title:</b>
-        <%= @resource.title %>
+        <%= @resource.title %> <%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success", :target => "_blank" %>
       </p>
 
       <p>
@@ -23,7 +23,7 @@
 
       <p>
         <b>Category:</b>
-        <%= @resource.categ_b %>
+        <%= @resource.category.name %>
       </p>
 
       <p>
