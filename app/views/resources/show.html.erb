@@ -12,18 +12,14 @@
     <div class="span9">
 
       <p>
-        <b>Title:</b>
-        <%= @resource.title %> <%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success", :target => "_blank" %>
+        <h3><b><%= @resource.title %><span class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success golink", :target => "_blank" %></span></b></h3>
       </p>
-
+      <p id='desc'>
+        <%= @resource.description %>
+      </p>
       <p>
         <b>Source:</b>
         <%= @resource.source %>
-      </p>
-
-      <p>
-        <b>Category:</b>
-        <%= @resource.category.name %>
       </p>
 
       <p>
@@ -50,15 +46,16 @@
         <b>Rating:</b>
         <%= @resource.rating %>
       </p>
-
+      <br/>
       <p>
-        <b>Description:</b>
-        <%= @resource.description %>
+        <b>Submitted By: </b><%= @resource.user.name %>
+      <div><%= gravatar_for @resource.user, size: 25 %> <%= time_ago_in_words(@resource.created_at) %> ago</div>
       </p>
 
 
-      <%= link_to 'Edit', edit_resource_path(@resource) %> |
-      <%= link_to 'Back', resources_path %>
+      <% if current_user?(@resource.user) %>
+      <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn' %>
+      <% end %>
 
 
     </div>
@@ -67,3 +64,4 @@
   </div>
 
 </div>
+<hr/>

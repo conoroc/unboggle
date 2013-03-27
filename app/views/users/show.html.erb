@@ -1,10 +1,45 @@
-<% provide(:title, "Profile" ) %>
 
+<% provide(:title, 'Profile') %>
+<div class="row">
+  <aside class="span2">
+    <%= render 'layouts/side_nav' %>
+  </aside>
+  <div class="span10 opaque">
+    <h1>My Profile</h1>
+    <h1>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h1>
+    <h2>My Resources</h2>
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th>Title</th>
+        <th>Source</th>
+        <th>Category</th>
+        <th>Level</th>
+        <th>Year</th>
+        <th>Cost</th>
+        <th>Medium</th>
+        <th>Rating</th>
+        <th>Description</th>
 
+      </tr>
 
-      <div class="container">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      </div>
+      <% @user.resources.each do |resource| %>
+          <tr>
+            <td><%= link_to resource.title, resource %></td>
+            <td><%= resource.source %></td>
+            <td><%= resource.category.name %></td>
+            <td><%= resource.level %></td>
+            <td><%= resource.year %></td>
+            <td><%= resource.cost %></td>
+            <td><%= resource.medium %></td>
+            <td><%= resource.rating %></td>
+            <td><%= resource.description.truncate(20) %></td>
+          </tr>
+      <% end %>
+    </table>
+    <br/>
+
+  </div>
+</div>

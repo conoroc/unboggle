@@ -13,6 +13,18 @@
 }
 
 @font-face {
+  font-family: 'SansationRegular';
+  src: url('Sansation_Regular-webfont.eot');
+  src: url('Sansation_Regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('Sansation_Regular-webfont.woff') format('woff'),
+  url('Sansation_Regular-webfont.ttf') format('truetype'),
+  url('Sansation_Regular-webfont.svg#SansationRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
   font-family: 'Lobster13Regular';
   src: url('Lobster_1.3-webfont.eot');
   src: url('Lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
@@ -24,9 +36,27 @@
 
 }
 
+div.greynav {
+  background-color: #424649;
+}
+#desc {
+  font-size: 1.1em;
+  letter-spacing: .1em;
+}
+.golink {
+  margin: 0 5px;
+}
 
+ul#top {
+  font-size: 1.1em;
+  padding-top: 5px;
+}
+#srchbtn {
+  margin-left: 110px;
+  margin-top: 10px;
+}
 a#logo {font: 25px 'Lobster13Regular', Arial, sans-serif;letter-spacing: 0;padding: 10 0;}
-h1 {font: 60px/68px 'AnuDawRegular', Arial, sans-serif;letter-spacing: 0;}
+li {font: 19px 'SansationRegular', Arial, sans-serif;letter-spacing: .2em;}
 /* universal */
 
 .navbar-inner {height: 50px;}
@@ -80,7 +110,7 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 0.9em;
   line-height: 1.7em;
 }
 
@@ -90,10 +120,11 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: #286607;
+  margin-left: 40px;
+  font-size: 1.9em;
+  color: #EF5148;
 
-  letter-spacing: -1px;
+ // letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
