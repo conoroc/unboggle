@@ -1,14 +1,23 @@
 <% provide(:title, 'Resources') %>
 <div class="row">
   <aside class="span2">
-<%= render 'layouts/side_nav' %>
-    </aside>
+    <%= render 'layouts/side_nav' %>
+  </aside>
   <div class="span10 opaque">
+
+    <%= search_form_for @search do |f| %>
+        <div class="search">
+          <%= f.label :title_cont, "Title Contains" %>
+          <%= f.text_field :title_cont %>
+        </div>
+        <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
+
     <h1>Listing Resources</h1>
 
     <table class="table table-hover table-bordered">
       <tr>
-        <th>Title</th>
+        <th><%= sort_link @search, :title, "Title" %></th>
         <th>Source</th>
         <th>Category</th>
         <th>Level</th>
@@ -36,4 +45,4 @@
     <br/>
 
   </div>
-  </div>
+</div>
