@@ -49,6 +49,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to(@resource, :notice => 'Comment was successfully created.') }
         format.xml  { render :xml => @resource, :status => :created, :location => @resource }
+        format.js
       else
         format.html { redirect_to(@resource, :notice =>
             'Comment could not be saved. Please fill in all fields')}
@@ -84,6 +85,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(@resource, :notice => 'Comment was successfully deleted.') }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

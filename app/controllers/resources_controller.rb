@@ -42,7 +42,7 @@ class ResourcesController < ApplicationController
   # POST /resources.json
   def create
     @resource = current_user.resources.new(params[:resource])
-
+    Notifier.resource_email(@resource).deliver
 
     respond_to do |format|
       if @resource.save
