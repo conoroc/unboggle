@@ -7,4 +7,7 @@ belongs_to :category
 has_many :comments, dependent: :destroy
 
 validates :category_id, presence: true
+
+
+
 end

@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
-  <div class="span6 offset3">
-    <div class="hero-unit opaque">
+<div class="span6 offset3">
+  <div class="hero-unit opaque">
     <h1>Sign up</h1>
     <%= form_for(@user) do |f| %>
         <%= render 'shared/errors' %>
@@ -10,6 +10,18 @@
 
         <%= f.label :profile_name %>
         <%= f.text_field :profile_name %>
+
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude %>
+
+        <%= f.label :longitude %>
+        <%= f.text_field :longitude %>
+
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+
+        <%= f.label :Be_Shown_On_Maps? %>
+        <%= f.check_box :gmaps %>
 
         <%= f.label :email %>
         <%= f.text_field :email %>

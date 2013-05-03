@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :profile_name, :resource_count, :subscribe, :password, :password_confirmation
-
+  attr_accessible :email, :latitude, :longitude, :address, :name, :gmaps, :profile_name, :resource_count, :subscribe, :password, :password_confirmation
+  acts_as_gmappable
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
+
+
+
+  def gmaps4rails_address
+    address
+  end
 
 
   private

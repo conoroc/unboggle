@@ -46,6 +46,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
+        current_user.increment!(:resource_count)
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
@@ -76,7 +77,7 @@ class ResourcesController < ApplicationController
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
-
+    current_user.decrement!(:resource_count)
     respond_to do |format|
       format.html { redirect_to resources_url }
       format.json { head :no_content }

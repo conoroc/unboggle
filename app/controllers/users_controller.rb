@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
-
+    @json = User.all.to_gmaps4rails
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
