@@ -1,0 +1,11 @@
+<div class="span2">
+  <h2>Comments</h2>
+  <%= render :partial => @resource.comments %>
+  <%= form_for([@resource, @resource.comments.build],:remote => true, id: "comments")  do |f| %>
+      <div>
+        <%= f.label 'Add a Comment' %>
+        <%= f.text_area :content, :cols => 25, :rows => 2 %>
+      </div>
+      <p><%= f.submit "Add Comment", class: 'btn'%></p>
+  <% end %>
+</div>
