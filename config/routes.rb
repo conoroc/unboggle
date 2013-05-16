@@ -1,6 +1,7 @@
 Unboggle::Application.routes.draw do
 
   resources :categories
+  resources :ratings
 
   resources :categories do
     resources :resources
