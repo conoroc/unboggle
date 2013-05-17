@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
+  has_many :ratings
+  has_many :rated_resources, :through => :ratings, :source => :resources
   has_many :resources
   has_many :comments, :through => :resources
 
