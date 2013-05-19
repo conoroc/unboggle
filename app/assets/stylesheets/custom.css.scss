@@ -36,6 +36,14 @@
 
 }
 
+//sticky-side
+
+#stickyside {
+  margin-left: 10px;
+  position: fixed;
+  background-color: #202020;
+}
+
 div.greynav {
   background-color: #424649;
 }
@@ -114,7 +122,11 @@ p {
   line-height: 1.7em;
 }
 
+//endless
 
+.msg {
+  color: #242424;
+}
 /* header */
 
 #logo {

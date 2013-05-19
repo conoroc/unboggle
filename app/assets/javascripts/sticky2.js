@@ -7,7 +7,7 @@
 
 
 $(function(){ // document ready
-    if ($("#stickyside").doesExist) {
+    if ($("#stickyside")) {
     var stickyTop = $('#stickyside').offset().top; // returns number
 
     $(window).scroll(function(){ // scroll event
@@ -15,10 +15,10 @@ $(function(){ // document ready
         var windowTop = $(window).scrollTop(); // returns numb         er
 
         if (stickyTop < windowTop) {
-            $('#stickyside').css({ position: 'fixed', top: 0, left: '8px' });
+            $('#stickyside').css({ position: 'fixed', top: '40px' });
         }
         else {
-            $('#stickyside').css({ position: 'static', top: '261px' });
+            $('#stickyside').css({ position: 'fixed', top: '60px' });
    }
 
     });

@@ -26,29 +26,16 @@
         <h5> Medium</h5>
         <h5> Rating</h5>
         <h5> Description</h5></div>
-      <%= will_paginate %>
+
+
       <div class="resources">
 
+        <%= render :partial => 'resource' %>
+        <%= will_paginate @resources %>
+        <%= nether(@resources.total_pages, resources_path, ".resources") %>
 
-        <div>
-          <% @resources.each do |resource| %>
-              <div id="details">
-                <div  id="rtitle"><%= link_to resource.title, resource %></div>
-                <div class="res_details" id="rsource"><%= resource.source %></div>
-                <div class="res_details" id="rcat"><%= resource.category.name %></div>
-                <div class="res_details" id="rlevel"><%= resource.level %></div>
-                <div class="res_details" id="ryear"><%= resource.year %></div>
-                <div class="res_details" id="rcost"><%= resource.cost %></div>
-                <div class="res_details" id="rmedium"><%= resource.medium %></div>
-                <div class="res_details" id="rrating"><%= resource.rating %></div>
-                <div class="res_details" id="rdesc"> <%= resource.description.truncate(20) %></div>
-              </div>
-
-          <% end %>
-
-        </div>
       </div>
-      <%= will_paginate %>
+
     </div>
 
 
