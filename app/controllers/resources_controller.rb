@@ -3,11 +3,12 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @search = Resource.search(params[:q])
-    @resources = @search.result
+    @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @resources }
+      format.js
     end
   end
 

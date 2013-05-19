@@ -173,3 +173,35 @@ input {
     }
   }
 }
+
+//resources index
+.resource_content {
+  width: 80%;
+  margin: 20px auto;
+}
+#res_header h5 {
+  width: 60px;
+  padding: 5px;
+  display: inline-table;
+}
+
+.res_details {
+  display: inline;
+  width: 50px;
+  padding: 5px;
+}
+
+#details {
+  height: 90px;
+  margin: 5px;
+}
+
+#rrating, #rcost, #ryear {
+  width: 50px;
+}
+
+#rtitle {
+  height: 60px;
+  width: 160px;
+  float: left;
+}
