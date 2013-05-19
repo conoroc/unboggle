@@ -1,0 +1,18 @@
+<div>
+
+  <% @resources.each do |resource| %>
+      <div id="details">
+        <div  id="rtitle"><%= link_to resource.title, resource %></div>
+        <div class="res_details" id="rsource"><%= resource.source %></div>
+        <div class="res_details" id="rcat"><%= resource.category.name %></div>
+        <div class="res_details" id="rlevel"><%= resource.level %></div>
+        <div class="res_details" id="ryear"><%= resource.year %></div>
+        <div class="res_details" id="rcost"><%= resource.cost %></div>
+        <div class="res_details" id="rmedium"><%= resource.medium %></div>
+        <div class="res_details" id="rrating"><%= resource.rating %></div>
+        <div class="res_details" id="rdesc"> <%= resource.description.truncate(20) %></div>
+      </div>
+
+  <% end %>
+
+</div>

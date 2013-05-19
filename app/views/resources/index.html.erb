@@ -15,34 +15,45 @@
 
     <h1>Listing Resources</h1>
 
-    <table class="table table-hover table-bordered">
-      <tr>
-        <th><%= sort_link @search, :title, "Title" %></th>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Level</th>
-        <th>Year</th>
-        <th>Cost</th>
-        <th>Medium</th>
-        <th>Rating</th>
-        <th>Description</th>
-      </tr>
+    <div class="resource_content">
+      <div id="res_header">
+        <h5><%= sort_link @search, :title, "Title" %></h5>
+        <h5>Source</h5>
+        <h5>Category</h5>
+        <h5>Level</h5>
+        <h5>Year</h5>
+        <h5>Cost</h5>
+        <h5> Medium</h5>
+        <h5> Rating</h5>
+        <h5> Description</h5></div>
+      <%= will_paginate %>
+      <div class="resources">
 
-      <% @resources.each do |resource| %>
-          <tr>
-            <td><%= link_to resource.title, resource %></td>
-            <td><%= resource.source %></td>
-            <td><%= resource.category.name %></td>
-            <td><%= resource.level %></td>
-            <td><%= resource.year %></td>
-            <td><%= resource.cost %></td>
-            <td><%= resource.medium %></td>
-            <td><%= resource.rating %></td>
-            <td><%= resource.description.truncate(20) %></td>
-          </tr>
-      <% end %>
-    </table>
-    <br/>
+
+        <div>
+          <% @resources.each do |resource| %>
+              <div id="details">
+                <div  id="rtitle"><%= link_to resource.title, resource %></div>
+                <div class="res_details" id="rsource"><%= resource.source %></div>
+                <div class="res_details" id="rcat"><%= resource.category.name %></div>
+                <div class="res_details" id="rlevel"><%= resource.level %></div>
+                <div class="res_details" id="ryear"><%= resource.year %></div>
+                <div class="res_details" id="rcost"><%= resource.cost %></div>
+                <div class="res_details" id="rmedium"><%= resource.medium %></div>
+                <div class="res_details" id="rrating"><%= resource.rating %></div>
+                <div class="res_details" id="rdesc"> <%= resource.description.truncate(20) %></div>
+              </div>
+
+          <% end %>
+
+        </div>
+      </div>
+      <%= will_paginate %>
+    </div>
+
+
 
   </div>
 </div>
+
+
