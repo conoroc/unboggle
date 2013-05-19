@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
 
 
-  before_filter :signed_in?
+  #before_filter :signed_in?
 
   def create
     @resource = Resource.find_by_id(params[:resource_id])

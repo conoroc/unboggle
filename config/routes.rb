@@ -4,6 +4,7 @@ Unboggle::Application.routes.draw do
   resources :ratings
 
   resources :categories do
+
     resources :resources
   end
 
