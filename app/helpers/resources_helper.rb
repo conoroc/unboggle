@@ -24,4 +24,6 @@ module ResourcesHelper
     end
   end
 
+
+
 end

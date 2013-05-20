@@ -7,7 +7,7 @@
 
 
 $(function(){ // document ready
-    if ($("#stickyside")) {
+    if ($("#stickyside").length) {
     var stickyTop = $('#stickyside').offset().top; // returns number
 
     $(window).scroll(function(){ // scroll event

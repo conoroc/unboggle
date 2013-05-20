@@ -36,6 +36,19 @@
 
 }
 
+//search dropdown
+
+#searchdrop {
+  padding: 10px;
+  width: 300px;
+  margin-top: -10px;
+  margin-left: 225px;
+  background-color: lightgrey;
+  position: absolute;
+  opacity: 0.8;
+
+}
+
 //sticky-side
 
 #stickyside {
@@ -216,4 +229,11 @@ input {
   height: 60px;
   width: 160px;
   float: left;
+}
+
+
+//map info window
+
+#my_google_map img {
+  max-width: none;
 }

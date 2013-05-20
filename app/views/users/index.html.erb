@@ -1,4 +1,8 @@
 <% provide(:title, 'All users') %>
+<div class="row">
+  <aside class="span2">
+    <%= render 'layouts/side_nav' %>
+  </aside>
 <div class="well opaque span6 offset3"  id="gmapdiv" data-user="<%= User.limit(7).to_json %>" >
 <h1>All users</h1>
 
@@ -12,3 +16,4 @@
 <%= will_paginate %>
 </div>
 
+</div>

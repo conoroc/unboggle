@@ -4,7 +4,7 @@
   <aside class="span2">
     <%= render 'layouts/side_nav' %>
   </aside>
-  <div class="span10 opaque" id="gmapdiv" data-user="[<%= current_user.to_json %>]">
+  <div class="span10 opaque" id="gmapdiv" data-user="[<%= @user.to_json %>]">
     <h1>My Profile</h1>
     <h1>
       <%= gravatar_for @user %>

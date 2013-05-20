@@ -1,10 +1,21 @@
 class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
+
+
   def index
     @search = Resource.search(params[:q])
     @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
-    render_nether("resources/resource")
+
+
+
+
+
+    respond_to do |format|
+      format.html { nether("resources/resource") }
+      format.json { render json: @resource }
+      format.js
+    end
 
 
   end
