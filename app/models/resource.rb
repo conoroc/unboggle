@@ -20,5 +20,13 @@ class Resource < ActiveRecord::Base
     @value.to_f / @total.to_f
   end
 
+  def previous
+    self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at desc")
+  end
+
+  def next
+    self.class.first(:conditions => ["created_at > ?", created_at], :order => "created_at asc")
+  end
+
 
 end

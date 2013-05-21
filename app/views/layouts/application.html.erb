@@ -15,6 +15,7 @@
    <div class="row-fluid">
 
           <div class="container" id="stickycontent">
+            <%= flash[:error] %>
           <% flash.each do |key, value| %>
               <%= content_tag(:div, value, class: "alert alert-#{key}") %>
           <% end %>

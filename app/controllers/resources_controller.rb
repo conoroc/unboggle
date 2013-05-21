@@ -24,10 +24,11 @@ class ResourcesController < ApplicationController
   # GET /resources/1.json
   def show
     @resource = Resource.find(params[:id])
-
+    @rating = Rating.new(params[:rating])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @resource }
+      format.js
     end
   end
 
@@ -55,7 +56,8 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
-        current_user.increment!(:resource_count)
+        #current_user.increment!(:resource_count)
+
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else

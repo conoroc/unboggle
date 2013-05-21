@@ -1,0 +1,93 @@
+
+  <ul class="breadcrumb">
+    <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+    <li><%= link_to @resource.category.name, category_path(@resource.category.id) %> <span class="divider">/</span>
+    </li>
+    <li class="active"><%= @resource.title %></li>
+  </ul>
+  <div class="span9">
+
+    <p>
+
+    <h3><b><%= @resource.title %>
+      <span class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success golink", :target => "_blank" %></span></b>
+    </h3>
+    </p>
+    <p id='desc'>
+      <%= @resource.description %>
+    </p>
+
+    <p>
+      <b>Source:</b>
+      <%= @resource.source %>
+    </p>
+
+    <p>
+      <b>Level:</b>
+      <%= @resource.level %>
+    </p>
+
+    <p>
+      <b>Year:</b>
+      <%= @resource.year %>
+    </p>
+
+    <p>
+      <b>Cost:</b>
+      <%= @resource.cost %>
+    </p>
+
+    <p>
+      <b>Medium:</b>
+      <%= @resource.medium %>
+    </p>
+
+    <p>
+      <b>Rating:</b>
+      <%= @resource.rating %>
+    </p>
+
+    <div class="star">
+      <%= form_for(@rating, :remote => true, :html => {:class => 'rating_ballot'}) do |f| %>
+          <%= f.label("value_1", content_tag(:span, '1'), {:class => "rating", :id => "1"}) %>
+          <%= radio_button_tag("rating[value]", 1, current_user_rating = 1, :class => 'rating_button') %>
+          <%= f.label("value_2", content_tag(:span, '2'), {:class => "rating", :id => "2"}) %>
+          <%= radio_button_tag("rating[value]", 2, current_user_rating = 2, :class => 'rating_button') %>
+          <%= f.label("value_3", content_tag(:span, '3'), {:class => "rating", :id => "3"}) %>
+          <%= radio_button_tag("rating[value]", 3, current_user_rating = 3, :class => 'rating_button') %>
+          <%= f.label("value_4", content_tag(:span, '4'), {:class => "rating", :id => "4"}) %>
+          <%= radio_button_tag("rating[value]", 4, current_user_rating = 4, :class => 'rating_button') %>
+          <%= f.label("value_5", content_tag(:span, '5'), {:class => "rating", :id => "5"}) %>
+          <%= radio_button_tag("rating[value]", 5, current_user_rating = 5, :class => 'rating_button') %>
+          <%= hidden_field_tag("resource_id", @resource.id) %>
+          <%= f.submit :Submit, :id => 'rating_submit' %>
+      <% end %>
+    </div>
+    <br/>
+
+    <p>
+      <b>Submitted By: </b><%= @resource.user.name %>
+
+    <div><%= gravatar_for @resource.user, size: 25 %> <%= time_ago_in_words(@resource.created_at) %> ago</div>
+    </p>
+    <div class="rating_score">
+      <table id="rating">
+        <tr><th colspan="2">Resource Ratings</th></tr>
+        <tr><td>Average Rating</td><td><%= @resource.average_rating %></td></tr>
+
+      </table>
+    </div>
+
+    <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %>
+    <%= link_to("Next", @resource.next, :remote => true) if @resource.next %>
+
+
+    <% if current_user?(@resource.user) %>
+        <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn' %>
+    <% end %>
+
+
+  </div>
+
+  <%= render 'comments' %>
+
