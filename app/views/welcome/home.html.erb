@@ -2,6 +2,7 @@
   <p id="homey"></p>
   <div class="span3 well pull-left opaque move">
     <h3 class="center">Latest Resources</h3>
+    <h6 class="center label label-success all"><%= link_to "View All", resources_path %></h6>
     <% @feed.each do |r| %>
         <%= link_to(resource_path(r)) do  %>
         <div id="holder">
@@ -49,25 +50,25 @@
         <h3 class="center">Search or browse for a resource</h3>
 
 
-        <%= search_form_for @search, :html => {:class => "form-inline"} do |f| %>
+        <%= search_form_for @search,  :html => {:class => "form-inline"} do |f| %>
             <div class="search">
-              <%= f.label :title_cont, "Title Contains" %>
+              <%= f.label :title_cont, "Title:" %>
               <%= f.text_field :title_cont, class: "input-medium search-query" %>
 
 
-              <%= f.label :year_gteq, "Not Older Than" %>
+              <%= f.label :year_gteq, "Not Older Than:" %>
               <%= f.text_field :year_gteq, class: "input-medium search-query" %>
 
 
-              <%= f.label :category_id_eq, "Category" %>
+              <%= f.label :category_id_eq, "Category:" %>
               <%= f.select :category_id_eq, [['  --  ', ''], ['Ruby', 1], ['Rails', 2], ['ASP.net', 3], ['Ajax', 4], ['CSS', 5], ['HTML', 6], ['Design', 7], ['Javascript', 8]] %>
               <br/>
               <br/>
 
-              <%= f.label :level_eq, "Level" %>
+              <%= f.label :level_eq, "Level:" %>
               <%= f.select :level_eq, [['Beginner', 'Beginner'], ['Intermediate', 'Intermediate'],['Upper-Intermediate', 'Upper-Intermediate'],], class: "input-medium search-query" %>
 
-              <%= f.label :rating_eq, "Rating Lowest" %>
+              <%= f.label :rating_eq, "Rating Lowest:" %>
               <%= f.select :rating_gteq, [[1, 1], [2, 2],[3, 3], [4, 4],[5, 5], [6, 6], [6, 6],[7, 7],[8, 8],[9, 9],[10, 10]], class: "input-medium search-query" %>
               <br/>
               <div class="center isbtn">

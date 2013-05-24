@@ -50,7 +50,7 @@
         </div>
       </div>
 
-          <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') if @resource.pdf_url %></div>
+          <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') if @resource.pdf_url || @resource %></div>
 
            <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") if @resource.medium.include?("Video")  %></div>
 

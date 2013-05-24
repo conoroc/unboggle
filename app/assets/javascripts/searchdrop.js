@@ -22,9 +22,9 @@
 
 $(document).ready(function(){
 
-    if($('#homey')) {
-        $('#srchbtn').hide();
-    }
+//    if($('#homey').visible()) {
+//        $('#srchbtn').hide();
+//    }
     $('#searchdrop').hide();
     $('#srchbtn').click(function(){
         if ($('#searchdrop').is(':hidden')){

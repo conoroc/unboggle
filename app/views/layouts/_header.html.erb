@@ -39,7 +39,7 @@
 <div id="searchdrop">
   <%= search_form_for @search do |f| %>
       <div class="search">
-        <%= f.label :title_cont, "Title Contains" %>
+        <%= f.label :title_cont, "Title" %>
         <%= f.text_field :title_cont, class: "input-medium search-query" %>
       </div>
       <div class="search">
@@ -48,7 +48,7 @@
       </div>
       <div class="search">
         <%= f.label :category_id_eq, "Category" %>
-        <%= f.select :category_id_eq, [['  --  ', ''],['Ruby', 1], ['Rails', 2]] %>
+        <%= f.select :category_id_eq, [['  --  ', ''], ['Ruby', 1], ['Rails', 2], ['ASP.net', 3], ['Ajax', 4], ['CSS', 5], ['HTML', 6], ['Design', 7], ['Javascript', 8]] %>
       </div>
       <div class="actions"><%= f.submit "Search", class:"btn dog", id:"gosearch" %></div>
   <% end %>

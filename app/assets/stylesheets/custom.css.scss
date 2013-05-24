@@ -398,6 +398,10 @@ margin: -150px 0 0 -150px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (origin
 }
 //search dropdown
 
+#searchdrop label {
+  color: #333;
+}
+
 #searchdrop {
   padding: 10px;
   width: 300px;
@@ -425,6 +429,13 @@ select {
 
   position: fixed;
   //background-color: #1A1A1A;
+}
+
+.all a {
+   color: #FFFFFF;
+  &:hover {
+    color: #262626;
+  }
 }
 
 
