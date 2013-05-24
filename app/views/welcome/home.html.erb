@@ -1,4 +1,45 @@
-<div class="container">
+<div>
+  <div class="span3 well pull-left">
+    <h3>Latest Resources</h3>
+    <% @feed.each do |r| %>
+        <%= link_to(resource_path(r)) do  %>
+        <div id="holder">
+          <div id="thumb">
+            <% if r.image? %>
+                <%= image_tag(r.image_url, :class => "img-polaroid")  %>
+            <% else %>
+                <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+            <% end %>
+          </div>
+          <div id="heading">
+          <h6><%= r.title %></h6>
+          </div>
+          <div id="blurb">
+            <%= truncate(r.description, :length => 60) %>
+          </div>
+          <div>
+            <div class="detail-l">
+            <span class="label label-warning tags"><i class="icon-certificate"> </i><%= r.category.name %></span>
+            <span class="label label-info tags"><i class="icon-road"> </i><%= r.level %></span>
+            <span class="label label-inverse tags"><i class="icon-pencil"> </i><%= r.medium %></span>
+            </div>
+            <div class="detail-r">
+            <span class="badge badge-warning tagsr"><i class="icon-star"> </i><%= r.rating %></span>
+            <span class="badge badge-success tagsr"><i class="icon-thumbs-up"> </i><%= r.likes %></span>
+            <span class="label label-important tagsr"><i class="icon-calendar"> </i><%= r.created_at.strftime("%m/%d/%Y") %></span>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+<div class="container offset3">
   <div class="span12">
     <div class="row">
       <div class="hero-unit welcome opaque">
@@ -18,9 +59,9 @@
             </div>
             <div class="search">
               <%= f.label :category_id_eq, "Category" %>
-              <%= f.select :category_id_eq, [['  --  ', ''],['Ruby', 1], ['Rails', 2]] %>
+              <%= f.select :category_id_eq, [['  --  ', ''], ['Ruby', 1], ['Rails', 2]] %>
             </div>
-            <div class="actions"><%= f.submit "Search", class:"btn" %></div>
+            <div class="actions"><%= f.submit "Search", class: "btn" %></div>
         <% end %>
       </div>
     </div>
@@ -74,6 +115,7 @@
       </div>
       <div class="span3 opaque well">
         <h2><%= link_to "ASP", category_path(3) %></h2>
+
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
           Nam Cursus. Morbi Ut Mi. Nullam Enim Leo, Egestas Id, </p>
       </div>

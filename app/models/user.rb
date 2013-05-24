@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   attr_accessible :email, :latitude, :longitude, :address, :name, :gmaps, :profile_name, :resource_count, :subscribe, :password, :password_confirmation
   acts_as_gmappable
   has_secure_password
@@ -6,8 +7,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  has_many :ratings
-  has_many :rated_resources, :through => :ratings, :source => :resources
+  has_many :likes, :through => :resources
   has_many :resources
   has_many :comments, :through => :resources
 
@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   def gmaps4rails_address
     address
   end
+
+
 
 
   private

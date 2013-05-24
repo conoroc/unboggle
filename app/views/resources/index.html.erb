@@ -1,40 +1,43 @@
 <% provide(:title, 'Resources') %>
-<div class="row">
-  <aside class="span2">
+<div>
+  <div class="span3 well pull-left opaque" id="stickyside">
+    <h3>Categories</h3>
     <%= render 'layouts/side_nav' %>
-  </aside>
-  <div class="span10 opaque">
+  </div>
+
+</div>
+
+<div class="container offset3">
+  <div class="span12 opaque nextlast">
+    <div class="row">
+      <h1>Listing Resources</h1>
+
+      <div class="resource_content">
+        <div id="res_header">
+
+          <h5><%= sort_link @search, :title, "Title" %></h5>
+          <h5><%= sort_link @search, :source, "Source" %></h5>
+          <h5><%= sort_link @search, :category, "Category" %></h5>
+          <h5><%= sort_link @search, :level, "Level" %></h5>
+          <h5><%= sort_link @search, :year, "Year" %></h5>
+          <h5><%= sort_link @search, :cost, "Cost" %></h5>
+          <h5><%= sort_link @search, :medium, "Medium" %></h5>
+          <h5><%= sort_link @search, :rating, "Rating" %></h5>
+          <h5><%= sort_link @search, :description, "Description" %></h5></div>
 
 
+        <div class="resources">
 
-    <h1>Listing Resources</h1>
+          <%= render :partial => 'resource' %>
+          <%= will_paginate @resources %>
+          <%= nether(@resources.total_pages, resources_path, ".resources") %>
 
-    <div class="resource_content">
-      <div id="res_header">
-        <h5><%= sort_link @search, :title, "Title" %></h5>
-        <h5>Source</h5>
-        <h5>Category</h5>
-        <h5>Level</h5>
-        <h5>Year</h5>
-        <h5>Cost</h5>
-        <h5> Medium</h5>
-        <h5> Rating</h5>
-        <h5> Description</h5></div>
-
-
-      <div class="resources">
-
-        <%= render :partial => 'resource' %>
-        <%= will_paginate @resources %>
-        <%= nether(@resources.total_pages, resources_path, ".resources") %>
+        </div>
 
       </div>
 
+
     </div>
-
-
-
   </div>
 </div>
-
 

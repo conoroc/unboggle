@@ -3,17 +3,28 @@
   <aside class="span2">
     <%= render 'layouts/side_nav' %>
   </aside>
-<div class="well opaque span6 offset3"  id="gmapdiv" data-user="<%= User.limit(7).to_json %>" >
+<div class="well opaque span9 offset2"  id="gmapdiv" data-user="<%= User.limit(7).to_json %>" >
 <h1>All users</h1>
 
 <%= will_paginate %>
+ <div class="user_cont span5">
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+
+
+
+  <%= render :partial => 'user' %>
+
+  <%= will_paginate @users %>
+  <%= nether(@users.total_pages, users_path, ".user_cont") %>
+
+
+
+
+ </div>
+
   <div id="my_google_map"></div>
 
-<%= will_paginate %>
+
 </div>
 
 </div>

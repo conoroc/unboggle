@@ -14,10 +14,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @search = @category.resources.search(params[:q])
-    @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
-    nether("resources/resource")
+    @resources = @category.resources.paginate(:page => params[:page], :per_page => 6)
 
+    nether("categories/resource")
   end
 
   # GET /categories/new

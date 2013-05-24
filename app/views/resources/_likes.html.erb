@@ -1,0 +1,6 @@
+<div class="span2">
+  <%= form_for([@resource, @resource.likes.build], :remote => true,  id: "likes")  do |f| %>
+
+      <p><%= f.submit "Like This", class: 'label label-success' %></p>
+  <% end %>
+</div>

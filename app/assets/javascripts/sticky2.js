@@ -15,10 +15,10 @@ $(function(){ // document ready
         var windowTop = $(window).scrollTop(); // returns numb         er
 
         if (stickyTop < windowTop) {
-            $('#stickyside').css({ position: 'fixed', top: '40px' });
+            $('#stickyside').css({ position: 'fixed', top: '60px' });
         }
         else {
-            $('#stickyside').css({ position: 'fixed', top: '60px' });
+            $('#stickyside').css({ position: 'fixed', top: '80px' });
    }
 
     });

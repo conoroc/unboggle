@@ -1,87 +1,84 @@
 <% provide(:title, 'Resources') %>
-<div class="row">
-  <aside class="span2">
+<div class="row-fluid">
+  <div class="container span12">
+  <div class="well sidebar-nav span2" id="stickyside">
     <%= render 'layouts/side_nav' %>
-  </aside>
-  <div class="span10 opaque nextlast">
+  </div>
+
+  <div class="span9 opaque nextlast offset2">
     <ul class="breadcrumb">
       <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
       <li><%= link_to @resource.category.name, category_path(@resource.category.id) %> <span class="divider">/</span>
       </li>
       <li class="active"><%= @resource.title %></li>
     </ul>
-    <div class="span9">
+    <div class="container span11" id="marge">
+      <div class="row-fluid">
 
-      <p>
+      <div id="maincomments" class="container span3 well pull-right">
+      <div  class="well" id="commentsinner">
+        <%= render 'comments' %>
+      </div>
+      </div>
 
-      <h3><b><%= @resource.title %>
-        <span class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success golink", :target => "_blank" %></span></b>
-      </h3>
-      </p>
-      <p id='desc'>
-        <%= @resource.description %>
-      </p>
+      <div class="container span9 well" id="description">
 
-      <p>
-        <b>Source:</b>
-        <%= @resource.source %>
-      </p>
+      <div class="row-fluid">
+        <div class="container well span12" id="fat">
+      <div id="mainpic" class="span3 well">
+        <% if @resource.image? %>
+        <%= image_tag(@resource.image_url, :class => "img-polaroid")  %>
+            <% else %>
+        <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+            <% end %>
+      </div>
 
-      <p>
-        <b>Level:</b>
-        <%= @resource.level %>
-      </p>
+      <div class="span7 well" id="mainintro">
+        <div id="maindesc">
+          <h3><b><%= @resource.title %>
+            <span class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success golink", :target => "_blank" %></span></b>
+          </h3>
+          <p id='desc'><%= @resource.description %></p>
+        </div>
+      </div>
+          <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') if @resource.pdf_url %></div>
+           <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") if @resource.medium.include?("Video")  %></div>
+        </div>
+      </div>
 
-      <p>
-        <b>Year:</b>
-        <%= @resource.year %>
-      </p>
+    <div class="row-fluid">
+    <div id="maindetails" class="span12 well pull-left">
+      <div class="well span5">
+      <p><b>Source:</b> <%= @resource.source %></p>
 
-      <p>
-        <b>Cost:</b>
-        <%= @resource.cost %>
-      </p>
+      <p><b>Level:</b><%= @resource.level %> </p>
 
-      <p>
-        <b>Medium:</b>
-        <%= @resource.medium %>
-      </p>
+      <p><b>Year:</b><%= @resource.year %></p>
 
-      <p>
-        <b>Rating:</b>
+      <p><b>Cost:</b><%= @resource.cost %></p>
+
+      <p><b>Medium:</b><%= @resource.medium %></p>
+      </div>
+      <div class="well span7">
+
+      <p><b>Submitted By: </b><%= @resource.user.name %>
+
+      <div><%= gravatar_for @resource.user, size: 25 %><%= time_ago_in_words(@resource.created_at) %> ago</div>
+      <div id="rate" data-rating="<%= @resource.rating %>">
         <%= @resource.rating %>
-      </p>
-
-      <div class="star">
-        <%= form_for(@rating, :remote => true, :html => {:class => 'rating_ballot'}) do |f| %>
-            <%= f.label("value_1", content_tag(:span, '1'), {:class => "rating", :id => "1"}) %>
-            <%= radio_button_tag("rating[value]", 1, current_user_rating = 1, :class => 'rating_button') %>
-            <%= f.label("value_2", content_tag(:span, '2'), {:class => "rating", :id => "2"}) %>
-            <%= radio_button_tag("rating[value]", 2, current_user_rating = 2, :class => 'rating_button') %>
-            <%= f.label("value_3", content_tag(:span, '3'), {:class => "rating", :id => "3"}) %>
-            <%= radio_button_tag("rating[value]", 3, current_user_rating = 3, :class => 'rating_button') %>
-            <%= f.label("value_4", content_tag(:span, '4'), {:class => "rating", :id => "4"}) %>
-            <%= radio_button_tag("rating[value]", 4, current_user_rating = 4, :class => 'rating_button') %>
-            <%= f.label("value_5", content_tag(:span, '5'), {:class => "rating", :id => "5"}) %>
-            <%= radio_button_tag("rating[value]", 5, current_user_rating = 5, :class => 'rating_button') %>
-            <%= hidden_field_tag("resource_id", @resource.id) %>
-            <%= f.submit :Submit, :id => 'rating_submit' %>
-        <% end %>
+        <ul class="rating">
+          <% (1..10).each do |i| %>
+              <li class="rating_star" id=<%= "star_id_"+"#{i}" %>></li>
+          <% end %>
+        </ul>
       </div>
-      <br/>
+      <% if user_likes(current_user, @resource.id) %>
+          <div class="likes">
+            <%= @resource.likes.count %>
+            <%= render 'likes' %>
+          </div>
+      <% end %>
 
-      <p>
-        <b>Submitted By: </b><%= @resource.user.name %>
-
-      <div><%= gravatar_for @resource.user, size: 25 %> <%= time_ago_in_words(@resource.created_at) %> ago</div>
-      </p>
-      <div class="rating_score">
-        <table id="rating">
-          <tr><th colspan="2">Resource Ratings</th></tr>
-          <tr><td>Average Rating</td><td><%= @resource.average_rating %></td></tr>
-
-        </table>
-      </div>
 
       <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %>
       <%= link_to("Next", @resource.next, :remote => true) if @resource.next %>
@@ -90,12 +87,14 @@
       <% if current_user?(@resource.user) %>
           <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn' %>
       <% end %>
-
-
+      </div>
     </div>
-
-    <%= render 'comments' %>
+      </div>
+      </div>
   </div>
+  </div>
+  </div>
+</div>
 
 </div>
 
