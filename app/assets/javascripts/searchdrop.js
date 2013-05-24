@@ -18,7 +18,13 @@
 //});
 
 
+
+
 $(document).ready(function(){
+
+    if($('#homey')) {
+        $('#srchbtn').hide();
+    }
     $('#searchdrop').hide();
     $('#srchbtn').click(function(){
         if ($('#searchdrop').is(':hidden')){

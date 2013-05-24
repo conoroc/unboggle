@@ -1,7 +1,8 @@
 <% provide(:title, 'Resources') %>
 <div class="row-fluid">
   <div class="container span12">
-  <div class="well sidebar-nav span2" id="stickyside">
+  <div class="span2 well pull-left opaque" id="stickyside">
+    <h3 class="center">Categories</h3>
     <%= render 'layouts/side_nav' %>
   </div>
 
@@ -12,6 +13,8 @@
       </li>
       <li class="active"><%= @resource.title %></li>
     </ul>
+
+
     <div class="container span11" id="marge">
       <div class="row-fluid">
 
@@ -25,7 +28,7 @@
 
       <div class="row-fluid">
         <div class="container well span12" id="fat">
-      <div id="mainpic" class="span3 well">
+      <div id="mainpic" class="span3">
         <% if @resource.image? %>
         <%= image_tag(@resource.image_url, :class => "img-polaroid")  %>
             <% else %>
@@ -33,60 +36,66 @@
             <% end %>
       </div>
 
-      <div class="span7 well" id="mainintro">
+      <div class="span7" id="mainintro">
         <div id="maindesc">
-          <h3><b><%= @resource.title %>
-            <span class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success golink", :target => "_blank" %></span></b>
+          <h3><%= truncate(@resource.title, :length => 40) %>
           </h3>
-          <p id='desc'><%= @resource.description %></p>
+          <div id='desc'><%= @resource.description %></div>
+          <div id="move">
+          <span class="label"><i class="icon icon-arrow-left"> </i> <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %></span>
+          <span class="label"><%= link_to("Next", @resource.next, :remote => true) if @resource.next %> <i class="icon icon-arrow-right"></i></span>
+          </div>
+            <div class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success", :target => "_blank" %></div>
+
         </div>
       </div>
+
           <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') if @resource.pdf_url %></div>
+
            <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") if @resource.medium.include?("Video")  %></div>
+
         </div>
       </div>
 
     <div class="row-fluid">
     <div id="maindetails" class="span12 well pull-left">
-      <div class="well span5">
-      <p><b>Source:</b> <%= @resource.source %></p>
+      <div class="span5">
+      <h4><b>Source:</b></h4><p><%= @resource.source %></p>
 
-      <p><b>Level:</b><%= @resource.level %> </p>
 
-      <p><b>Year:</b><%= @resource.year %></p>
 
-      <p><b>Cost:</b><%= @resource.cost %></p>
+          <h4><b>Year:</b></h4><p><%= @resource.year %></p>
 
-      <p><b>Medium:</b><%= @resource.medium %></p>
+            <h4><b>Cost:</b></h4><p><%= @resource.cost %></p>
+
+              <h4><b>Medium:</b></h4><p><%= @resource.medium %></p>
       </div>
-      <div class="well span7">
+      <div class="span7">
 
-      <p><b>Submitted By: </b><%= @resource.user.name %>
-
-      <div><%= gravatar_for @resource.user, size: 25 %><%= time_ago_in_words(@resource.created_at) %> ago</div>
-      <div id="rate" data-rating="<%= @resource.rating %>">
-        <%= @resource.rating %>
+        <div> <h4><b>Submitted By: </b></h4></div>
+        <div><h5><%= gravatar_for @resource.user, size: 25 %> <%= @resource.user.name %><small>(<%= time_ago_in_words(@resource.created_at) %> ago)</small></h5></div>
+        <h4><b>Level:</b></h4><p><%= @resource.level %> </p>
+        <div> <h4><b>Rating: </b></h4></div>
+        <div id="rate" class="label label-inverse" data-rating="<%= @resource.rating %>">
         <ul class="rating">
           <% (1..10).each do |i| %>
               <li class="rating_star" id=<%= "star_id_"+"#{i}" %>></li>
           <% end %>
         </ul>
       </div>
+        <div id='likes'>
+          <span class="label label-success">Likes <i class="icon-thumbs-up"></i><%= @resource.likes.count %></span>
       <% if user_likes(current_user, @resource.id) %>
-          <div class="likes">
-            <%= @resource.likes.count %>
+
             <%= render 'likes' %>
-          </div>
+
       <% end %>
-
-
-      <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %>
-      <%= link_to("Next", @resource.next, :remote => true) if @resource.next %>
-
-
+        </div>
+        <div id="edit">
       <% if current_user?(@resource.user) %>
-          <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn' %>
+          <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn btn-small btn-inverse' %>
       <% end %>
+        </div>
       </div>
     </div>
       </div>

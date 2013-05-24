@@ -86,16 +86,33 @@
   height: 220px;
 }
 
-#mainpic img {
+img.img-polaroid {
   height: 100%;
   width: 100%;
 }
 
+//main plural containers
+
+#indexer {
+  padding-bottom: 30px;
+margin-bottom: 28px;
+  border-radius: 5px;
+}
+
 //mainshow
+
+
 #fat {
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: 5px;
 }
+
+#move {
+  margin-top: 10px;
+  width: 160px;
+  float: left;
+}
+
 .nextlast {
   height: 680px;
   padding: 0;
@@ -119,6 +136,14 @@
   height: 300px;
 }
 
+#maindesc {
+  height: 250px;
+}
+
+#maindesc h3 {
+  height: 50px;
+}
+
 #commentsinner {
   height: 520px;
 }
@@ -131,9 +156,72 @@
   height:600px;
 }
 
-//#maindesc {
-//  width: 50%;
-//}
+//main resources
+
+
+
+#pdfbut a  {
+  margin: -5px 6px 6px 20px;
+}
+
+#vidbt a {
+  margin: -5px 6px 6px 16px;
+}
+
+#rate {
+  padding-top: 8px;
+  width: 300px;
+  height: 30px;
+}
+
+#edit a {
+  margin: 5px 40px 0 0px;
+  float: right;
+}
+
+#likes {
+  height: 60px;
+  width: 170px;
+  float: left;
+  clear: left;
+}
+#likes span {
+  margin: 8px 10px 0 0;
+  float: left;
+}
+#likes input {
+  margin-top: 4px;
+}
+
+#mainholder {
+  height: 160px;
+  width: 350px;
+  margin: 10px 5px 0 ;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #1A1A1A;
+  float: left;
+}
+
+#mainheading {
+  width: 250px;
+  float: right;
+}h6{
+   margin: 5px;
+   color: #EF5148;
+   letter-spacing: 1px;
+ }
+
+#mainblurb {
+  color: whitesmoke;
+  width: 250px;
+  height: 60px;
+  float: right;
+  padding-right: 10px;
+} a:hover {
+    text-decoration: none;
+  }
+
 
 //Resources
 
@@ -176,11 +264,13 @@
 .tags {
     float: left;
     clear: left;
+  margin: 4px;
   }
 
   .tagsr {
     float: right;
     clear: right;
+    margin: 4px;
   }
 
   .detail-r {
@@ -245,6 +335,54 @@ li.rating_star.on {
   background: url(stars/star.png) 0 -25px;
 }
 
+// Users
+
+
+#grav {
+  width: 70px;
+  height: 70px;
+  margin: 0;
+  float: left;
+}
+ #namer {
+  width: 300px;
+   float: left;
+ }
+ h3#user a{
+   color: #333;
+ }
+.spec {
+  float: left;
+  clear: left;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+#userlist {
+ border-bottom: 1px solid darkgray;
+
+  width: 400px;
+  height: 150px;
+  margin: 15px 15px 15px 30px;
+  padding: 15px;
+}
+
+.singleuser {
+  float: left;
+  margin-left: 100px !important;
+}
+#del {
+  margin-bottom: 15px;
+  float: right;
+}
+
+#my_google_map {
+float: right;
+  border: 1px solid #979797;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
 //modal
 
 #modal_but {
@@ -264,8 +402,9 @@ margin: -150px 0 0 -150px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (origin
   padding: 10px;
   width: 300px;
   margin-top: -10px;
-  margin-left: 370px;
-  background-color: rgba(97, 94, 94, 0.86);
+  margin-left: 256px;
+  background-color: #B94A48;
+  opacity: 0.9;
   position: fixed;
 
   z-index: 10;
@@ -274,10 +413,16 @@ margin: -150px 0 0 -150px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (origin
 
 }
 
-//sticky-side
+select {
 
+}
+
+//sticky-side
+.move  {
+  margin-left: 0px !important;
+}
 #stickyside {
-  //margin-left: 10px;
+
   position: fixed;
   //background-color: #1A1A1A;
 }
@@ -290,9 +435,11 @@ div.greynav {
 #desc {
   font-size: 1.1em;
   letter-spacing: .1em;
+  height: 133px;
 }
 .golink {
-  margin: 0 5px;
+  margin-bottom: 10px;
+  float: right;
 }
 #top {
   margin-right: 50px;
@@ -406,8 +553,25 @@ p {
 }
 
 /* forms */
+.search {
+  margin-top: 25px;
+}
 
-input, textarea, select,  {
+.isbtn {
+  margin-top: 15px;
+}
+
+.welcome {
+  padding-bottom: 5px;
+}
+
+
+.search label {
+  color: #EF5148;
+  font-weight: bold;
+}
+
+input, textarea,  {
   width: 100%;
   margin-bottom: 15px;
 

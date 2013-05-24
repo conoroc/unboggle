@@ -18,7 +18,7 @@ $(function(){ // document ready
             $('#stickyside').css({ position: 'fixed', top: '60px' });
         }
         else {
-            $('#stickyside').css({ position: 'fixed', top: '80px' });
+            $('#stickyside').css({ position: 'fixed', top: '70px' });
    }
 
     });
