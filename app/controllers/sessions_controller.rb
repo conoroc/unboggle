@@ -2,16 +2,30 @@ class SessionsController < ApplicationController
 
 
   def new
+    @search = Resource.search(params[:q])
+    respond_to do |wants|
+      wants.html
+      wants.js
+    end
   end
 
   def create
+    @search = Resource.search(params[:q])
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_back_or user
+
+      respond_to do |wants|
+        wants.html { redirect_to current_user, notice: 'Logged in successfully' }
+        wants.js
+      end
     else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
+
+
+      respond_to do |wants|
+        wants.html { redirect_to root_url, notice: 'Invalid email/password combination' }
+        wants.js # defaults to create.js.erb
+      end
     end
   end
 

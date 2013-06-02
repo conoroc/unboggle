@@ -1,0 +1,36 @@
+<div>
+
+  <% @resources.each do |r| %>
+      <%= link_to(resource_path(r)) do  %>
+          <div id="mainholder">
+            <div id="thumb">
+              <% if r.image? %>
+                  <%= image_tag(r.image_url, :class => "img-polaroid")  %>
+              <% else %>
+                  <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+              <% end %>
+            </div>
+            <div id="mainheading">
+              <h6><%= truncate(r.title, :length => 20) %></h6>
+            </div>
+            <div id="mainblurb">
+              <%= truncate(r.description, :length => 60) %>
+            </div>
+            <div>
+              <div class="detail-l">
+                <span class="label label-warning tags"><i class="icon-certificate"> </i><%= r.category.name %></span>
+                <span class="label label-info tags"><i class="icon-road"> </i><%= r.level %></span>
+                <span class="label label-inverse tags"><i class="icon-pencil"> </i><%= r.medium %></span>
+              </div>
+              <div class="detail-r">
+                <span class="badge badge-warning tagsr"><i class="icon-star"> </i><%= r.rating %></span>
+                <span class="badge badge-success tagsr"><i class="icon-thumbs-up"> </i><%= r.likes.count %></span>
+                <span class="label label-important tagsr"><i class="icon-calendar"> </i><%= r.created_at.strftime("%m/%d/%Y") %></span>
+              </div>
+
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+
+</div>
