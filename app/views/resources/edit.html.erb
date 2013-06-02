@@ -6,11 +6,8 @@
     <h1>Editing resource</h1>
 
 
-    <%= form_for @resource do |f| %>
+    <%= form_for @resource, :html => {:multipart => true} do |f| %>
         <%#= render 'shared/error_messages', object: f.object %>
-
-        <%= f.label :user_id %>
-        <%= f.number_field :user_id %>
 
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -18,26 +15,29 @@
         <%= f.label :source %>
         <%= f.text_field :source %>
 
-        <%= f.label :categ_a %>
-        <%= f.text_field :categ_a %>
-
-        <%= f.label :categ_b %>
-        <%= f.text_field :categ_b %>
+        <%= f.label :category %>
+        <%= f.select :category_id, options_for_select([ ['None', ''], ['Ruby',1], ['Rails',2], ['ASP',3],['Ajax',4],['CSS',5],['HTML',6],['Design',7],['Javascript',8]], :selected => 'None') %>
 
         <%= f.label :level %>
-        <%= f.text_field :level %>
+        <%= f.select :level, options_for_select([ 'Beginner','Intermediate', 'Advanced' ]) %>
 
         <%= f.label :year %>
-        <%= f.number_field :year %>
+        <%= f.select(:year, 2000..Time.now.year, :selected=> Time.now.year) %>
 
         <%= f.label :cost %>
-        <%= f.text_field :cost %>
+        <%= f.select :cost, options_for_select(['Free', 'Paid']) %>
 
         <%= f.label :medium %>
-        <%= f.text_field :medium %>
+        <%= f.select :medium, options_for_select(['Book','Video','Blog-Tutorial','Article','Video-Tutorial','Tutorial-Exercises']) %>
+
+        <%= f.label :image %>
+        <%= f.file_field :image%>
+
+        <%= f.label :pdf %>
+        <%= f.file_field :pdf %>
 
         <%= f.label :rating %>
-        <%= f.number_field :rating %>
+        <%= f.select(:rating, 1..10, :selected => 10) %>
 
         <%= f.label :link %>
         <%= f.text_field :link %>

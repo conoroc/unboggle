@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516204543) do
+ActiveRecord::Schema.define(:version => 20130523135413) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -29,12 +29,21 @@ ActiveRecord::Schema.define(:version => 20130516204543) do
 
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
-  create_table "ratings", :force => true do |t|
-    t.string   "user_id"
-    t.string   "resource_id"
-    t.integer  "value"
+  create_table "likes", :force => true do |t|
+    t.integer  "resource_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "stars",       :default => 0
+    t.integer  "resource_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "resources", :force => true do |t|
@@ -54,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20130516204543) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "category_id"
+    t.string   "pdf"
+    t.string   "image"
   end
 
   create_table "users", :force => true do |t|

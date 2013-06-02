@@ -1,4 +1,47 @@
-<div class="container">
+<div>
+  <p id="homey"></p>
+  <div class="span3 well pull-left opaque move">
+    <h3 class="center">Latest Resources</h3>
+    <h6 class="center label label-success all"><%= link_to "View All", resources_path %></h6>
+    <% @feed.each do |r| %>
+        <%= link_to(resource_path(r)) do  %>
+        <div id="holder">
+          <div id="thumb">
+            <% if r.image? %>
+                <%= image_tag(r.image_url, :class => "img-polaroid")  %>
+            <% else %>
+                <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+            <% end %>
+          </div>
+          <div id="heading">
+          <h6><%= truncate(r.title, :length => 15) %></h6>
+          </div>
+          <div id="blurb">
+            <%= truncate(r.description, :length => 60) %>
+          </div>
+          <div>
+            <div class="detail-l">
+            <span class="label label-warning tags"><i class="icon-certificate"> </i><%= r.category.name %></span>
+            <span class="label label-info tags"><i class="icon-road"> </i><%= r.level %></span>
+            <span class="label label-inverse tags"><i class="icon-pencil"> </i><%= r.medium %></span>
+            </div>
+            <div class="detail-r">
+            <span class="badge badge-warning tagsr"><i class="icon-star"> </i><%= r.rating %></span>
+            <span class="badge badge-success tagsr"><i class="icon-thumbs-up"> </i><%= r.likes.count %></span>
+            <span class="label label-important tagsr"><i class="icon-calendar"> </i><%= r.created_at.strftime("%m/%d/%Y") %></span>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+<div class="container offset3">
   <div class="span12">
     <div class="row">
       <div class="hero-unit welcome opaque">
@@ -7,29 +50,41 @@
         <h3 class="center">Search or browse for a resource</h3>
 
 
-        <%= search_form_for @search do |f| %>
+        <%= search_form_for @search,  :html => {:class => "form-inline"} do |f| %>
             <div class="search">
-              <%= f.label :title_cont, "Title Contains" %>
+              <%= f.label :title_cont, "Title:" %>
               <%= f.text_field :title_cont, class: "input-medium search-query" %>
-            </div>
-            <div class="search">
-              <%= f.label :year_gteq, "Not Older Than" %>
+
+
+              <%= f.label :year_gteq, "Not Older Than:" %>
               <%= f.text_field :year_gteq, class: "input-medium search-query" %>
+
+
+              <%= f.label :category_id_eq, "Category:" %>
+              <%= f.select :category_id_eq, [['  --  ', ''], ['Ruby', 1], ['Rails', 2], ['ASP.net', 3], ['Ajax', 4], ['CSS', 5], ['HTML', 6], ['Design', 7], ['Javascript', 8]] %>
+              <br/>
+              <br/>
+
+              <%= f.label :level_eq, "Level:" %>
+              <%= f.select :level_eq, [['Beginner', 'Beginner'], ['Intermediate', 'Intermediate'],['Upper-Intermediate', 'Upper-Intermediate'],], class: "input-medium search-query" %>
+
+              <%= f.label :rating_eq, "Rating Lowest:" %>
+              <%= f.select :rating_gteq, [[1, 1], [2, 2],[3, 3], [4, 4],[5, 5], [6, 6], [6, 6],[7, 7],[8, 8],[9, 9],[10, 10]], class: "input-medium search-query" %>
+              <br/>
+              <div class="center isbtn">
+              <%= f.submit "Search", class: "btn btn-large btn-inverse" %>
+              </div>
             </div>
-            <div class="search">
-              <%= f.label :category_id_eq, "Category" %>
-              <%= f.select :category_id_eq, [['  --  ', ''],['Ruby', 1], ['Rails', 2]] %>
-            </div>
-            <div class="actions"><%= f.submit "Search", class:"btn" %></div>
+
         <% end %>
       </div>
     </div>
     <div class="row">
-      <div class="span6 opaque well">
-        <h1>Client Side</h1>
+      <div class="span6 opaque well center">
+        <h3><em>Client Side</em></h3>
       </div>
-      <div class="span6 opaque well">
-        <h1>Server Side</h1>
+      <div class="span6 opaque well center">
+        <h3><em>Server Side</em></h3>
       </div>
     </div>
     <div class="row">
@@ -74,6 +129,7 @@
       </div>
       <div class="span3 opaque well">
         <h2><%= link_to "ASP", category_path(3) %></h2>
+
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
           Nam Cursus. Morbi Ut Mi. Nullam Enim Leo, Egestas Id, </p>
       </div>

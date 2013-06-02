@@ -1,39 +1,52 @@
 <% provide(:title, @category.name) %>
-<div class="row">
-  <aside class="span2">
+<div class="row-fluid">
+  <div class="container span12">
+    <div class="span2 well pull-left opaque" id="stickyside">
+    <h3 class="center">Categories</h3>
     <%= render 'layouts/side_nav' %>
-  </aside>
-  <div class="span10 opaque">
+  </div>
+
+
+
+    <div class="span9 opaque offset2" id="indexer">
+      <div class="row">
     <h1>Listing Resources</h1>
 
-    <table class="table table-hover table-bordered">
-      <tr>
-        <th>Title</th>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Level</th>
-        <th>Year</th>
-        <th>Cost</th>
-        <th>Medium</th>
-        <th>Rating</th>
-        <th>Description</th>
-      </tr>
+    <div class="resource_content">
+      <div id="res_header">
+        <h5><%= sort_link @search, :title, "Title" %></h5>
+        <h5><%= sort_link @search, :source, "Source" %></h5>
+        <h5><%= sort_link @search, :category, "Category" %></h5>
+        <h5><%= sort_link @search, :level, "Level" %></h5>
+        <h5><%= sort_link @search, :year, "Year" %></h5>
+        <h5><%= sort_link @search, :cost, "Cost" %></h5>
+        <h5><%= sort_link @search, :medium, "Medium" %></h5>
+        <h5><%= sort_link @search, :rating, "Rating" %></h5>
+        <h5><%= sort_link @search, :description, "Description" %></h5></div>
 
-      <% @category.resources.each do |resource| %>
-          <tr>
-            <td><%= link_to resource.title, resource %></td>
-            <td><%= resource.source %></td>
-            <td><%= resource.category.name %></td>
-            <td><%= resource.level %></td>
-            <td><%= resource.year %></td>
-            <td><%= resource.cost %></td>
-            <td><%= resource.medium %></td>
-            <td><%= resource.rating %></td>
-            <td><%= resource.description.truncate(20) %></td>
-          </tr>
-      <% end %>
-    </table>
-    <br/>
+
+      <div class="resources">
+
+          <%= render :partial => 'resource' %>
+
+
+          <%= will_paginate @resources %>
+          <%= nether(@resources.total_pages, category_path, ".resources") %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
 
   </div>
-</div>
+
+
+
+
+
+
+
+
+
+
