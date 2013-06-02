@@ -37,7 +37,9 @@ group :test do
   # gem 'rb-fsevent', '0.9.1', :require => false
   # gem 'growl', '1.0.3'
 end
-
+group :development do
+  gem 'sqlite3'
+end
 group :production do
   gem 'pg'
 end
