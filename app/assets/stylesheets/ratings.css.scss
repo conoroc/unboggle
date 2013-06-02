@@ -1,0 +1,12 @@
+// Place all the styles related to the Ratings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form.rating_ballot input#rating_submit { display: none; }
+form.rating_ballot input.rating_button { display: none; }
+
+form.rating_ballot label.rating { cursor: pointer; display: block; height: 32px; width: 32px; float: left; }
+form.rating_ballot label.rating span { display: none; }
+form.rating_ballot label.rating { background-image: url(stars/b.png); }
+form.rating_ballot label.rating.bright { background-image: url(stars/g.png); }
+form.rating_ballot label.rating.glow { background-image: url(stars/g.png); }

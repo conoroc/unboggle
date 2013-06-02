@@ -1,24 +1,34 @@
 class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
+
+
   def index
     @search = Resource.search(params[:q])
-    @resources = @search.result
+    @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
+
+
+
+
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @resources }
+      format.html { nether("resources/resource") }
+      format.json { render json: @resource }
+      format.js
     end
+
+
   end
 
   # GET /resources/1
   # GET /resources/1.json
   def show
     @resource = Resource.find(params[:id])
-
+    #send_file(@resource.pdf, :type => 'application/pdf', :disposition => 'inline')
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @resource }
+      format.js
     end
   end
 
@@ -46,7 +56,8 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
-        current_user.increment!(:resource_count)
+
+
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
@@ -77,10 +88,17 @@ class ResourcesController < ApplicationController
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
-    current_user.decrement!(:resource_count)
+
     respond_to do |format|
       format.html { redirect_to resources_url }
       format.json { head :no_content }
     end
+  end
+
+  def openpdf
+    @resource = Resource.find(params[:id])
+    send_file("public#{@resource.pdf_url}", :type => 'application/pdf', :disposition => 'inline')
+
+
   end
 end

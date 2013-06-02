@@ -5,11 +5,12 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 6)
     @json = User.all.to_gmaps4rails
     respond_to do |format|
-      format.html # index.html.erb
+      format.html  { nether("users/user") }
       format.json { render json: @users }
+      format.js
     end
   end
 
@@ -17,9 +18,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @resources = Resource.all(params[:user_id])
+    @search = @user.resources.search(params[:q])
+    @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { nether("users/resource") }
       format.json { render json: @user }
     end
   end

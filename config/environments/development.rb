@@ -20,7 +20,7 @@ Unboggle::Application.configure do
       :address => "smtp.mail.yahoo.com" ,
       :port => 587 ,
       :user_name => "conor_oc@ymail.com" ,
-      :password => "nextchapter2",
+      :password => "yourforces1",
       :authentication       => 'plain',
       :enable_starttls_auto => true
   }

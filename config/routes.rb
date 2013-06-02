@@ -1,8 +1,11 @@
 Unboggle::Application.routes.draw do
 
+
   resources :categories
+  resources :ratings
 
   resources :categories do
+
     resources :resources
   end
 
@@ -10,6 +13,13 @@ Unboggle::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :resources do
     resources :comments
+    resources :likes
+  end
+
+  resources :resources do
+    member do
+      get :openpdf
+    end
   end
 
 

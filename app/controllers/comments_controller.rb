@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+
+  before_filter :signed_in_user
+
+
   def index
     @comments = Comment.all
 
@@ -88,4 +92,6 @@ class CommentsController < ApplicationController
       format.js
     end
   end
+
+
 end

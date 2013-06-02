@@ -1,46 +1,58 @@
-
 <% provide(:title, 'Profile') %>
-<div class="row">
-  <aside class="span2">
+<div class="row-fluid">
+  <div class="container span12">
+    <div class="span2 well pull-left opaque" id="stickyside">
+      <h3 class="center">Categories</h3>
     <%= render 'layouts/side_nav' %>
-  </aside>
-  <div class="span10 opaque" id="gmapdiv" data-user="[<%= current_user.to_json %>]">
-    <h1>My Profile</h1>
-    <h1>
-      <%= gravatar_for @user %>
-      <%= @user.name %>
-    </h1>
-    <h2>My Resources</h2>
-    <table class="table table-hover table-bordered">
-      <tr>
-        <th>Title</th>
-        <th>Source</th>
-        <th>Category</th>
-        <th>Level</th>
-        <th>Year</th>
-        <th>Cost</th>
-        <th>Medium</th>
-        <th>Rating</th>
-        <th>Description</th>
-
-      </tr>
-
-      <% @user.resources.each do |resource| %>
-          <tr>
-            <td><%= link_to resource.title, resource %></td>
-            <td><%= resource.source %></td>
-            <td><%= resource.category.name %></td>
-            <td><%= resource.level %></td>
-            <td><%= resource.year %></td>
-            <td><%= resource.cost %></td>
-            <td><%= resource.medium %></td>
-            <td><%= resource.rating %></td>
-            <td><%= resource.description.truncate(20) %></td>
-          </tr>
-      <% end %>
-    </table>
-    <br/>
-    <div id="my_google_map"></div>
   </div>
+    <div id="gmapdiv" data-user="[<%= @user.to_json %>]"></div>
+  <div class="span9 opaque offset2" id="indexer"  >
+    <div class="row">
+    <h1>Profile</h1>
+      <div class="row">
+      <div id="userlist" class="singleuser">
+        <div id="grav"> <%= gravatar_for(@user, size: 60) %> </div>
+        <div id="namer"> <h3 id="user"><%= link_to @user.name, @user %></h3></div>
+        <div id="userspecs">
 
+          <span class="label label label-success spec">Resources Added : <%= @user.resources.count %></span>
+          <span class="label label-info spec">City : <%= @user.address %></span>
+          <span class="label label-inverse spec">Joined : <%= @user.created_at.strftime("%m/%d/%Y") %></span>
+        </div>
+        <% if current_user.account == 'admin' && !current_user?(@user) %>
+            <%= link_to "Delete?", @user, method: :delete,
+                        data: {confirm: "You sure?"}, :id => "del", :class => "btn btn-danger" %>
+        <% end %>
+
+      </div>
+
+      <div id="my_google_map"></div>
+      </div>
+      <% if @user.resources.count > 0 %>
+    <h2>My Resources</h2>
+    <div class="resource_content">
+      <div id="res_header">
+        <h5><%= sort_link @search, :title, "Title" %></h5>
+        <h5><%= sort_link @search, :source, "Source" %></h5>
+        <h5><%= sort_link @search, :category, "Category" %></h5>
+        <h5><%= sort_link @search, :level, "Level" %></h5>
+        <h5><%= sort_link @search, :year, "Year" %></h5>
+        <h5><%= sort_link @search, :cost, "Cost" %></h5>
+        <h5><%= sort_link @search, :medium, "Medium" %></h5>
+        <h5><%= sort_link @search, :rating, "Rating" %></h5>
+        <h5><%= sort_link @search, :description, "Description" %></h5></div>
+
+
+      <div class="resources">
+
+        <%= render :partial => 'resource' %>
+        <%= will_paginate @resources %>
+        <%= nether(@resources.total_pages, resources_path, ".resources") %>
+      </div>
+
+  </div>
+          <% end %>
+  </div>
+</div>
+</div>
 </div>
