@@ -99,10 +99,6 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     send_file("public#{@resource.pdf_url}", :type => 'application/pdf', :disposition => 'inline')
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @resource }
-      format.js
-    end
+
   end
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   attr_accessible :email, :latitude, :longitude, :address, :name, :gmaps, :profile_name, :resource_count, :subscribe, :password, :password_confirmation
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => true, :check_process => false, :checker => "gmaps"
   has_secure_password
 
   before_save { |user| user.email = email.downcase }

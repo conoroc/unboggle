@@ -14,7 +14,7 @@
             <% end %>
           </div>
           <div id="heading">
-          <h6><%= r.title %></h6>
+          <h6><%= truncate(r.title, :length => 15) %></h6>
           </div>
           <div id="blurb">
             <%= truncate(r.description, :length => 60) %>
@@ -27,7 +27,7 @@
             </div>
             <div class="detail-r">
             <span class="badge badge-warning tagsr"><i class="icon-star"> </i><%= r.rating %></span>
-            <span class="badge badge-success tagsr"><i class="icon-thumbs-up"> </i><%= r.likes %></span>
+            <span class="badge badge-success tagsr"><i class="icon-thumbs-up"> </i><%= r.likes.count %></span>
             <span class="label label-important tagsr"><i class="icon-calendar"> </i><%= r.created_at.strftime("%m/%d/%Y") %></span>
             </div>
 

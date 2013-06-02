@@ -11,7 +11,7 @@
       <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
       <li><%= link_to @resource.category.name, category_path(@resource.category.id) %> <span class="divider">/</span>
       </li>
-      <li class="active"><%= @resource.title %></li>
+      <li class="active"><%= truncate(@resource.title, :length => 65) %></li>
     </ul>
 
 
@@ -50,10 +50,16 @@
         </div>
       </div>
 
-          <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') if @resource.pdf_url || @resource %></div>
-
-           <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") if @resource.medium.include?("Video")  %></div>
-
+          <% if @resource.pdf_url %>
+              <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') %></div>
+          <% else %>
+              <div id="pdfbut"><%= link_to("No PDF", "#", :class => 'label label-important pull-left') %></div>
+          <% end %>
+          <% if @resource.medium.include?("Video") %>
+              <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") %></div>
+          <% else %>
+              <div id="vidbt"><%= link_to("No Video", "#", :class => 'label label-important pull-left') %></div>
+          <% end %>
         </div>
       </div>
 
@@ -84,12 +90,14 @@
         </ul>
       </div>
         <div id='likes'>
-          <span class="label label-success">Likes <i class="icon-thumbs-up"></i><%= @resource.likes.count %></span>
-      <% if user_likes(current_user, @resource.id) %>
+          <span class="label label-success like_counter">Likes <i class="icon-thumbs-up"></i><%= @resource.likes.count %></span>
+
+          <% if user_likes(current_user, @resource.id) %>
 
             <%= render 'likes' %>
 
       <% end %>
+
         </div>
         <div id="edit">
       <% if current_user?(@resource.user) %>
