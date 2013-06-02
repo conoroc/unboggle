@@ -223,7 +223,7 @@ DEPENDENCIES
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)
   jquery-rails (= 2.0.2)
-  nether
+  nether (= 0.0.5)
   pg
   rails (= 3.2.12)
   ransack
