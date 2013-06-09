@@ -41,5 +41,6 @@ group :development do
   gem 'sqlite3'
 end
 group :production do
+  gem 'nether'
   gem 'pg'
 end
