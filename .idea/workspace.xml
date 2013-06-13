@@ -32,7 +32,7 @@
     <file path="/dummy.xml" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365978128148" ignored="false" />
     <file path="/ht.html" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365194086317" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/Quiz/ht.html" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365194093139" ignored="false" />
-    <file path="/Gemfile" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371140799107" ignored="false" />
+    <file path="/Gemfile" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371141139557" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/Quiz/git.js" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365461822565" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/Quiz/git.ps1" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365461978754" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/Phillipe/home.html" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1365788800758" ignored="false" />
@@ -106,7 +106,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="48" selection-start="98" selection-end="98" vertical-scroll-proportion="0.12099644">
+            <state line="9" column="58" selection-start="231" selection-end="231" vertical-scroll-proportion="0.27224198">
               <folding />
             </state>
           </provider>
@@ -1343,7 +1343,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="48" selection-start="98" selection-end="98" vertical-scroll-proportion="0.12099644">
+        <state line="9" column="58" selection-start="231" selection-end="231" vertical-scroll-proportion="0.27224198">
           <folding />
         </state>
       </provider>
