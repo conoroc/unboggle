@@ -219,3 +219,12 @@ Resource.create(:user_id => '2',
                 :category_id => '2',
                 :source => 'James Fend')
 Category.delete_all
+
+Category.create(:name => "Ruby")
+Category.create(:name => "Rails")
+Category.create(:name => "ASP.Net")
+Category.create(:name => "Ajax")
+Category.create(:name => "CSS")
+Category.create(:name => "HTML")
+Category.create(:name => "Design")
+Category.create(:name => "Javascript")

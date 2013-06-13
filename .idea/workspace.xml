@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/*/" />
     <file path="/Dummy.txt" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1364136734010" ignored="false" />
-    <file path="/seeds.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1364166436767" ignored="false" />
+    <file path="/seeds.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371161970009" ignored="false" />
     <file path="/category.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1364143920315" ignored="false" />
     <file path="/resource.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1366507636723" ignored="false" />
     <file path="/routes.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1364145215373" ignored="false" />
@@ -115,7 +115,16 @@
       <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="224" column="51" selection-start="10263" selection-end="10263" vertical-scroll-proportion="0.7832423">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.1538461">
               <folding />
             </state>
           </provider>
@@ -125,15 +134,6 @@
         <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/bundler/gems/nether-1394ab390281/app/helpers/nether_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="9" column="6" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nether_tasks.rake" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/bundler/gems/nether-1394ab390281/lib/tasks/nether_tasks.rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -185,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss" />
         <option value="$PROJECT_DIR$/app/views/resources/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -201,6 +200,7 @@
         <option value="$PROJECT_DIR$/config.ru" />
         <option value="C:/Ruby193/lib/ruby/gems/1.9.1/bundler/gems/nether-1394ab390281/lib/nether/engine.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
   </component>
@@ -1252,11 +1252,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/will_paginate-3.0.3/lib/will_paginate/core_ext.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/will_paginate-3.0.3/lib/will_paginate/view_helpers.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -1349,9 +1344,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.1538461">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="224" column="51" selection-start="10263" selection-end="10263" vertical-scroll-proportion="0.7832423">
           <folding />
         </state>
       </provider>
