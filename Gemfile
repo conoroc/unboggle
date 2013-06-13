@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'carrierwave'
-gem 'nether'
+gem 'nether', :git => 'github.com/maecro/nether'
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
