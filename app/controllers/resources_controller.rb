@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
 
 
     respond_to do |format|
-      format.html { nether("resources/resource") }
+      format.html { render_nether("resources/resource") }
       format.json { render json: @resource }
       format.js
     end
