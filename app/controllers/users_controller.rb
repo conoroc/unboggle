@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], :per_page => 6)
     @json = User.all.to_gmaps4rails
     respond_to do |format|
-      format.html  { nether("users/user") }
+      format.html  { render_nether("users/user") }
       format.json { render json: @users }
       format.js
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @search = @user.resources.search(params[:q])
     @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
     respond_to do |format|
-      format.html { nether("users/resource") }
+      format.html { render_nether("users/resource") }
       format.json { render json: @user }
     end
   end

@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
     @search = @category.resources.search(params[:q])
     @resources = @search.result.paginate(:page => params[:page], :per_page => 6)
 
-    nether("categories/resource")
+    render_nether("categories/resource")
   end
 
   # GET /categories/new
