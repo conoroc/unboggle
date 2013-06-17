@@ -1,7 +1,15 @@
 <div id="comment<%=(comment.id)%>">
 <p>
-  <div><%= gravatar_for comment.user, size: 25 %><b><%= comment.user.name %></b><small> (<%= time_ago_in_words(comment.created_at) %> ago)</small></div>
-  <br/>
+  <div id="commentgrav">
+    <% if comment.user.profile? %>
+        <%= image_tag(comment.user.profile_url, :class => "img-polaroid")  %>
+    <% else %>
+        <%= image_tag('default.jpg',  :class => "img-polaroid") %>
+    <% end %>
+
+  </div>
+  <div id="commentname"><b><%= comment.user.name %></b><small class="tiny"> (<%= time_ago_in_words(comment.created_at) %> ago)</small></div>
+
   <%= comment.content %>
 
 

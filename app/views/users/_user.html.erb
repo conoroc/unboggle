@@ -1,7 +1,14 @@
 <% @users.each do |user| %>
 
     <div id="userlist">
-      <div id="grav"> <%= gravatar_for(user, size: 60) %> </div>
+      <div id="grav">
+        <% if user.profile? %>
+            <%= image_tag(user.profile_url, :class => "img-polaroid")  %>
+        <% else %>
+            <%= image_tag('default.jpg',  :class => "img-polaroid") %>
+        <% end %>
+
+      </div>
       <div id="namer"> <h3 id="user"><%= link_to user.name, user %></h3></div>
       <div id="userspecs">
 

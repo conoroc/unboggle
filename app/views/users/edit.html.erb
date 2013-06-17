@@ -4,7 +4,7 @@
 <div class="row">
   <div class="span6 offset3 well opaque">
     <h1>Update your profile</h1>
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
         <%= render 'shared/errors' %>
 
         <%= f.label :name %>
@@ -16,11 +16,8 @@
         <%= f.label :address %>
         <%= f.text_field :address %>
 
-        <%= f.label :latitude %>
-        <%= f.text_field :latitude %>
-
-        <%= f.label :longitude %>
-        <%= f.text_field :longitude %>
+        <%= f.label :profile, "Profile Picture" %>
+        <%= f.file_field :profile %>
 
         <%= f.label :subscribe %>
         <%= f.check_box :subscribe %>
@@ -37,7 +34,6 @@
         <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+
   </div>
 </div>

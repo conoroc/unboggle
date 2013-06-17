@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523135413) do
+ActiveRecord::Schema.define(:version => 20130616230011) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130523135413) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.string   "profile"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

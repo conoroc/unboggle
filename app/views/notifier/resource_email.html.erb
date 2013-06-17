@@ -4,8 +4,10 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 </head>
 <body>
+<div class="well">
 <h1>New Resource</h1>
-<p><%= @resource.title %> has been added to UnBoggle by <%= @resource.user.name %></p>
-<p>Come check it out!</p>
+<p><strong><%= link_to @resource.title, "https://unboggle.herokuapp.com/resources/#{@resource.id}" %></strong> has been added to UnBoggle by <%= @resource.user.name %></p><br/>
+<p><em>Come check it out!</em></p>
+</div>
 </body>
 </html>

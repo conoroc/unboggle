@@ -40,7 +40,7 @@
         <div id="maindesc">
           <h3><%= truncate(@resource.title, :length => 40) %>
           </h3>
-          <div id='desc'><%= @resource.description %></div>
+          <div id='desc'><%= truncate(@resource.description, :length => 250) %></div>
           <div id="move">
           <span class="label"><i class="icon icon-arrow-left"> </i> <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %></span>
           <span class="label"><%= link_to("Next", @resource.next, :remote => true) if @resource.next %> <i class="icon icon-arrow-right"></i></span>
@@ -79,7 +79,16 @@
       <div class="span7">
 
         <div> <h4><b>Submitted By: </b></h4></div>
-        <div><h5><%= gravatar_for @resource.user, size: 25 %> <%= @resource.user.name %><small>(<%= time_ago_in_words(@resource.created_at) %> ago)</small></h5></div>
+        <div><h5><div id="minigrav">
+          <% if @resource.user.profile? %>
+              <%= image_tag(@resource.user.profile_url, :class => "img-polaroid")  %>
+          <% else %>
+              <%= image_tag('default.jpg',  :class => "img-polaroid") %>
+          <% end %>
+
+        </div>
+          <div id="gravname">
+          <%= @resource.user.name %><small>(<%= time_ago_in_words(@resource.created_at) %> ago)</small></div></h5></div><br/>
         <h4><b>Level:</b></h4><p><%= @resource.level %> </p>
         <div> <h4><b>Rating: </b></h4></div>
         <div id="rate" class="label label-inverse" data-rating="<%= @resource.rating %>">

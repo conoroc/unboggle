@@ -89,6 +89,7 @@
 img.img-polaroid {
   height: 100%;
   width: 100%;
+
 }
 
 //main plural containers
@@ -131,6 +132,8 @@ margin-bottom: 28px;
   height:600px;
   margin-right: -20px;
 }
+
+#commentsinner {overflow-y: auto;}
 
 #maindetails {
   height: 300px;
@@ -341,14 +344,50 @@ li.rating_star.on {
 
 
 #grav {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px 15px 0;
+  float: left;
+}
+
+#minigrav {
+  width: 30px;
+  height: 30px;
   margin: 0;
   float: left;
 }
- #namer {
+
+#commentgrav {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  float: left;
+}
+
+#commentname {
+  width: 110px;
+  margin-left: 34px;
+  font-size: .9em;
+}
+
+.tiny {
+  font-size: .8em;
+}
+#minigrav img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#gravname {
   width: 300px;
+  margin: 0 0 0 45px;
+  padding-top: 0px;
+
+}
+ #namer {
+  width: 280px;
    float: left;
+   margin-left: 15px;
  }
  h3#user a{
    color: #333;
@@ -364,7 +403,7 @@ li.rating_star.on {
  border-bottom: 1px solid darkgray;
 
   width: 400px;
-  height: 150px;
+  height: 160px;
   margin: 15px 15px 15px 30px;
   padding: 15px;
 }
@@ -629,8 +668,12 @@ input {
 }
 #res_header h5 {
   width: 60px;
-  padding: 5px;
+  padding: 5px 5px 5px 17px;
   display: inline-table;
+}
+
+h5 {
+  text-align: center;
 }
 
 .res_details {
@@ -660,3 +703,30 @@ input {
 #my_google_map img {
   max-width: none;
 }
+
+
+//Scrollbars
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 8px;
+  height:5px;
+}
+::-webkit-scrollbar-track {
+  background:#eee;
+  border: thin solid lightgray;
+  box-shadow: 0px 0px 3px #dfdfdf inset;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+  background:#999;
+  border: thin solid gray;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background:#7d7d7d;
+}
+
