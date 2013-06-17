@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :likes, :through => :resources
   has_many :resources
   has_many :comments, :through => :resources
+
   mount_uploader :profile, ProfileUploader
 
   validates :name, presence: true, length: {maximum: 50}
