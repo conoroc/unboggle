@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'carrierwave'
+gem 'fog', '~> 1.0.0'
 gem 'nether', :git => 'https://github.com/maecro/nether.git'
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '2.1'
