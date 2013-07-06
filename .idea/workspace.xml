@@ -70,6 +70,9 @@
     <file path="/_form.html.erb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371423907226" ignored="false" />
     <file path="/_show.html.erb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371428943274" ignored="false" />
     <file path="/application.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1371431765138" ignored="false" />
+    <file path="/image_uploader.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1373148248051" ignored="false" />
+    <file path="/pdf_uploader.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1373148274842" ignored="false" />
+    <file path="/profile_uploader.rb" changelist="c2b07b9c-f4ee-430a-8158-c3c2baa56c0c" time="1373148286268" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,19 +92,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="57" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile_uploader.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="profile_uploader.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/uploaders/profile_uploader.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="27" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
+            <state line="14" column="4" selection-start="440" selection-end="440" vertical-scroll-proportion="0.39323843">
               <folding />
             </state>
           </provider>
@@ -143,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="carrierwave.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="carrierwave.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/carrierwave.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="46" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.81238616">
+            <state line="23" column="89" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -173,7 +167,16 @@
       <file leaf-file-name="image_uploader.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="62" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
+            <state line="15" column="2" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pdf_uploader.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/uploaders/pdf_uploader.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="2" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -189,8 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/users/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/comments/_comment.html.erb" />
         <option value="$PROJECT_DIR$/app/views/resources/_show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/resources/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_user.html.erb" />
@@ -198,13 +199,15 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/categories/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/uploaders/profile_uploader.rb" />
         <option value="$PROJECT_DIR$/app/models/profile_uploader.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/carrierwave.rb" />
+        <option value="$PROJECT_DIR$/app/uploaders/image_uploader.rb" />
+        <option value="$PROJECT_DIR$/app/uploaders/pdf_uploader.rb" />
+        <option value="$PROJECT_DIR$/app/uploaders/profile_uploader.rb" />
       </list>
     </option>
   </component>
@@ -1122,13 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/pdf_uploader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Ruby193/lib/ruby/gems/1.9.1/gems/carrierwave-0.7.1/lib/carrierwave/orm/activerecord.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="8" selection-start="250" selection-end="250" vertical-scroll-proportion="0.33274022" />
@@ -1144,13 +1140,6 @@
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="57" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/profile_uploader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="27" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1190,13 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="62" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="21" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
@@ -1206,7 +1188,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/carrierwave.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="46" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.81238616">
+        <state line="23" column="89" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/uploaders/image_uploader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="2" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/uploaders/pdf_uploader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="2" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/uploaders/profile_uploader.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="4" selection-start="440" selection-end="440" vertical-scroll-proportion="0.39323843">
           <folding />
         </state>
       </provider>
