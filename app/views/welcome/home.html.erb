@@ -1,23 +1,26 @@
-<div>
+<div>x
   <p id="homey"></p>
-  <div class="span3 well pull-left opaque move">
+  <div class="grid_3 opaque res-outer alpha">
     <h3 class="center">Latest Resources</h3>
     <h6 class="center label label-success all"><%= link_to "View All", resources_path %></h6>
     <% @feed.each do |r| %>
         <%= link_to(resource_path(r)) do  %>
         <div id="holder">
+          <div class="sidecontent">
           <div id="thumb">
             <% if r.image? %>
-                <%= image_tag(r.image_url, :class => "img-polaroid")  %>
+                <%= image_tag(r.image_url, :class => "")  %>
             <% else %>
-                <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+                <%= image_tag('ruby.jpg',  :class => "") %>
             <% end %>
           </div>
+
           <div id="heading">
-          <h6><%= truncate(r.title, :length => 15) %></h6>
+          <h6><%= truncate(r.title, :length => 20) %></h6>
           </div>
           <div id="blurb">
-            <%= truncate(r.description, :length => 60) %>
+            <%= truncate(r.description, :length => 70) %>
+          </div>
           </div>
           <div>
             <div class="detail-l">
@@ -41,9 +44,9 @@
 
 
 
-<div class="container offset3">
-  <div class="span12">
-    <div class="row">
+<div class="grid_9 omega">
+
+
       <div class="hero-unit welcome opaque">
         <h1>Welcome To UnBoggle</h1>
 
@@ -78,35 +81,28 @@
 
         <% end %>
       </div>
-    </div>
-    <div class="row">
-      <div class="span6 opaque well center">
-        <h3><em>Client Side</em></h3>
-      </div>
-      <div class="span6 opaque well center">
-        <h3><em>Server Side</em></h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span3 opaque well">
+
+
+    <div class="grid_9">
+      <div class="grid_2 opaque">
         <h2><%= link_to "Javascript", category_path(8) %></h2>
 
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
           Nam Cursus. Morbi Ut Mi. Nullam Enim Leo, Egestas Id, .</p>
       </div>
-      <div class="span3 opaque well">
+      <div class="grid_2  opaque ">
         <h2><%= link_to "CSS", category_path(5) %></h2>
 
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
           Nam Cursus. Morbi Ut Mi. Nullam Enim Leo, Egestas Id, </p>
       </div>
-      <div class="span3 opaque well">
+      <div class="grid_2  opaque ">
         <h2><%= link_to "Rails", category_path(2) %></h2>
 
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
           Nam Cursus. Morbi Ut Mi. Nullam Enim Leo, Egestas Id, </p>
       </div>
-      <div class="span3 opaque well">
+      <div class="grid_2  opaque ">
         <h2><%= link_to "Ajax", category_path(4) %></h2>
 
         <p>Lorem Ipsum Dolor Sit Amet, Consectetuer Adipiscing Elit.
@@ -141,4 +137,4 @@
       </div>
     </div>
   </div>
-</div>
+
