@@ -1,0 +1,45 @@
+<% provide(:title, 'Sign up') %>
+
+<div class="span6 offset3">
+  <div class="hero-unit opaque">
+    <h1>Sign up</h1>
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
+        <%= render 'shared/errors' %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :profile_name %>
+        <%= f.text_field :profile_name %>
+
+        <%#= f.label :latitude %>
+        <%#= f.text_field :latitude %>
+
+        <%#= f.label :longitude %>
+        <%#= f.text_field :longitude %>
+
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+
+        <%= f.label :profile, "Profile Picture" %>
+        <%= f.file_field :profile %>
+
+        <%= f.label :Be_Shown_On_Maps? %>
+        <%= f.check_box :gmaps %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label :subscribe, :class => "checkbox" do %>
+            <%= f.check_box :subscribe %>Subscribe
+        <% end %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

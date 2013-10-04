@@ -1,0 +1,32 @@
+<% provide(:title, 'All users') %>
+<div class="row-fluid">
+  <div class="container span12">
+    <div class="span2 well pull-left opaque" id="stickyside">
+      <h3 class="center">Categories</h3>
+      <%= render 'layouts/side_nav' %>
+    </div>
+    <div id="gmapdiv" data-user="<%= User.limit(7).to_json %>"></div>
+    <div class="well opaque span9 offset2" id="indexer">
+      <div class="row">
+        <h1>All users</h1>
+
+
+        <div class="user_cont span6">
+
+
+          <%= render :partial => 'user' %>
+
+          <%= will_paginate @users %>
+          <%= nether(@users.total_pages, users_path, ".user_cont") %>
+
+
+        </div>
+
+        <div id="my_google_map"></div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

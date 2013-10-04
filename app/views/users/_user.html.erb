@@ -1,0 +1,26 @@
+<% @users.each do |user| %>
+
+    <div id="userlist">
+      <div id="grav">
+        <% if user.profile? %>
+            <%= image_tag(user.profile_url, :class => "img-polaroid")  %>
+        <% else %>
+            <%= image_tag('default.jpg',  :class => "img-polaroid") %>
+        <% end %>
+
+      </div>
+      <div id="namer"> <h3 id="user"><%= link_to user.name, user %></h3></div>
+      <div id="userspecs">
+
+        <span class="label label label-success spec">Resources Added : <%= user.resources.count %></span>
+        <span class="label label-info spec">City : <%= user.address %></span>
+        <span class="label label-inverse spec">Joined : <%= user.created_at.strftime("%m/%d/%Y") %></span>
+      </div>
+      <% if current_user.account == 'admin' && !current_user?(user) %>
+           <%= link_to "Delete?", user, method: :delete,
+                        data: {confirm: "You sure?"}, :id => "del", :class => "btn btn-danger" %>
+      <% end %>
+
+    </div>
+
+<% end %>

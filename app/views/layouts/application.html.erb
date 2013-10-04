@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+<%= render 'layouts/header' %>
+<div class="row-fluid">
+ <div class="span12">
+
+
+          <div class="container">
+            <%= flash[:error] %>
+          <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "offset2 alert alert-#{key}") %>
+          <% end %>
+          </div>
+          <%= yield %>
+
+   </div>
+ </div>
+<%= yield :scripts %>
+</body>
+</html>

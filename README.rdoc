@@ -1,0 +1,25 @@
+UnBoggle Web Development Education Resources Application
+========================================================
+Developed using:
+- Ruby on Rails
+- jQuery
+- Ajax
+- Google maps API
+- Mailer
+- Carrierwave
+- Ransack
+
+
+Functions
+---------
+- Full authentication features + Admin
+- Browse resources by category
+- Star-Rating for each resource
+- Add comments and browse resources through Ajax
+- Email sent to subscribed users when new resource added
+- Users location displayed on map
+- Advanced search and slide-down search
+- Sticky side navigation
+- View PDF and Video in modal
+- PDF, Video and Picture upload
+

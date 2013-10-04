@@ -1,0 +1,8 @@
+
+      <div class="resources">
+
+        <%= render :partial => 'resource' %>
+        <%= will_paginate @resources %>
+        <%= nether(@resources.total_pages, resources_path, ".resources") %>
+
+      </div>

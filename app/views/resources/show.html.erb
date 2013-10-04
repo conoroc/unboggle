@@ -1,0 +1,126 @@
+<% provide(:title, 'Resources') %>
+<div class="row-fluid">
+  <div class="container span12">
+  <div class="span2 well pull-left opaque" id="stickyside">
+    <h3 class="center">Categories</h3>
+    <%= render 'layouts/side_nav' %>
+  </div>
+
+  <div class="span9 opaque nextlast offset2">
+    <ul class="breadcrumb">
+      <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+      <li><%= link_to @resource.category.name, category_path(@resource.category.id) %> <span class="divider">/</span>
+      </li>
+      <li class="active"><%= truncate(@resource.title, :length => 65) %></li>
+    </ul>
+
+
+    <div class="container span11" id="marge">
+      <div class="row-fluid">
+
+      <div id="maincomments" class="container span3 well pull-right">
+      <div  class="well" id="commentsinner">
+        <%= render 'comments' %>
+      </div>
+      </div>
+
+      <div class="container span9 well" id="description">
+
+      <div class="row-fluid">
+        <div class="container well span12" id="fat">
+      <div id="mainpic" class="span3">
+        <% if @resource.image? %>
+        <%= image_tag(@resource.image_url, :class => "img-polaroid")  %>
+            <% else %>
+        <%= image_tag('ruby.jpg',  :class => "img-polaroid") %>
+            <% end %>
+      </div>
+
+      <div class="span7" id="mainintro">
+        <div id="maindesc">
+          <h3><%= truncate(@resource.title, :length => 40) %>
+          </h3>
+          <div id='desc'><%= truncate(@resource.description, :length => 250) %></div>
+          <div id="move">
+          <span class="label"><i class="icon icon-arrow-left"> </i> <%= link_to("Previous", @resource.previous, :remote => true) if @resource.previous %></span>
+          <span class="label"><%= link_to("Next", @resource.next, :remote => true) if @resource.next %> <i class="icon icon-arrow-right"></i></span>
+          </div>
+            <div class="golink"><%= link_to "Go Check It Out", @resource.link, :class => "btn btn-success", :target => "_blank" %></div>
+
+        </div>
+      </div>
+
+          <% if @resource.pdf_url %>
+              <div id="pdfbut"><%= link_to("Open PDF", {:action => 'openpdf'}, :target => "_blank", :class => 'label label-important pull-left') %></div>
+          <% else %>
+              <div id="pdfbut"><%= link_to("No PDF", "#", :class => 'label label-important pull-left') %></div>
+          <% end %>
+          <% if @resource.medium.include?("Video") %>
+              <div id="vidbt"><%= link_to("Watch Video", @resource.link, :target => "_blank", :class => "label label-important pull-left") %></div>
+          <% else %>
+              <div id="vidbt"><%= link_to("No Video", "#", :class => 'label label-important pull-left') %></div>
+          <% end %>
+        </div>
+      </div>
+
+    <div class="row-fluid">
+    <div id="maindetails" class="span12 well pull-left">
+      <div class="span5">
+      <h4><b>Source:</b></h4><p><%= @resource.source %></p>
+
+
+
+          <h4><b>Year:</b></h4><p><%= @resource.year %></p>
+
+            <h4><b>Cost:</b></h4><p><%= @resource.cost %></p>
+
+              <h4><b>Medium:</b></h4><p><%= @resource.medium %></p>
+      </div>
+      <div class="span7">
+
+        <div> <h4><b>Submitted By: </b></h4></div>
+        <div><h5><div id="minigrav">
+          <% if @resource.user.profile? %>
+              <%= image_tag(@resource.user.profile_url, :class => "img-polaroid")  %>
+          <% else %>
+              <%= image_tag('default.jpg',  :class => "img-polaroid") %>
+          <% end %>
+
+        </div>
+          <div id="gravname">
+          <%= @resource.user.name %><small>(<%= time_ago_in_words(@resource.created_at) %> ago)</small></div></h5></div><br/>
+        <h4><b>Level:</b></h4><p><%= @resource.level %> </p>
+        <div> <h4><b>Rating: </b></h4></div>
+        <div id="rate" class="label label-inverse" data-rating="<%= @resource.rating %>">
+        <ul class="rating">
+          <% (1..10).each do |i| %>
+              <li class="rating_star" id=<%= "star_id_"+"#{i}" %>></li>
+          <% end %>
+        </ul>
+      </div>
+        <div id='likes'>
+          <span class="label label-success like_counter">Likes <i class="icon-thumbs-up"></i><%= @resource.likes.count %></span>
+
+          <% if user_likes(current_user, @resource.id) %>
+
+            <%= render 'likes' %>
+
+      <% end %>
+
+        </div>
+        <div id="edit">
+      <% if current_user?(@resource.user) %>
+          <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn btn-small btn-inverse' %>
+      <% end %>
+        </div>
+      </div>
+    </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+</div>
+
+</div>
+

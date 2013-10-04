@@ -1,0 +1,8 @@
+Category.create(:name => 'ruby')
+Category.create(:name => 'rails')
+Category.create(:name => 'asp')
+Category.create(:name => 'ajax')
+Category.create(:name => 'css')
+Category.create(:name => 'html')
+Category.create(:name => 'design')
+Category.create(:name => 'javascript')

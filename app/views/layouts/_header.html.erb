@@ -1,0 +1,68 @@
+<header class="navbar navbar-fixed-top navbar-inverse greynav">
+  <div class="navbar-inner greynav">
+    <div>
+      <%= link_to "UnBoggle", root_path, id: "logo" %>
+
+      <nav>
+
+          <button class="btn" id="srchbtn" type="button"><i class="icon-search"></i> Search</button>
+
+
+        <ul class="nav pull-right" id="top">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Resources", resources_path %></li>
+          <% if signed_in? %>
+              <li><%= link_to "Add a Resource", new_resource_path %></li>
+              <li><%= link_to "Users", users_path %></li>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "My Profile", current_user %></li>
+                  <li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to "Sign out", signout_path, method: "delete" %>
+                  </li>
+                </ul>
+              </li>
+          <% else %>
+              <li><%= link_to "Register!", signup_path%></li>
+              <li><%= link_to "Sign in", signin_path, :remote => true, "data-toggle" => "modal" %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<div id="searchdrop">
+  <%= search_form_for @search do |f| %>
+      <div class="search">
+        <%= f.label :title_cont, "Title" %>
+        <%= f.text_field :title_cont, class: "input-medium search-query" %>
+      </div>
+      <div class="search">
+        <%= f.label :year_gteq, "Not Older Than" %>
+        <%= f.text_field :year_gteq, class: "input-medium search-query" %>
+      </div>
+      <div class="search">
+        <%= f.label :category_id_eq, "Category" %>
+        <%= f.select :category_id_eq, [['  --  ', ''], ['Ruby', 1], ['Rails', 2], ['ASP.net', 3], ['Ajax', 4], ['CSS', 5], ['HTML', 6], ['Design', 7], ['Javascript', 8]] %>
+      </div>
+      <div class="actions"><%= f.submit "Search", class:"btn dog", id:"gosearch" %></div>
+  <% end %>
+</div>
+<div class="modal fade center" id="modal-content">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3>Sign In</h3>
+  </div>
+  <div class="modal-body">
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
