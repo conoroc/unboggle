@@ -35,10 +35,10 @@ $(document).ready(function(){
         }
     });
 
-//    $('#gosearch').click(function() {
-//        $('#searchdrop').slideUp('slow');
-//
-//    });
+    $('#gosearch').click(function() {
+        $('#searchdrop').slideUp('slow');
+
+    });
 });
 
 

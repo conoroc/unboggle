@@ -74,10 +74,6 @@
 
 }
 
-.row {
-  width: 100%;
-}
-
 // Picture
 
 #mainpic {
@@ -208,7 +204,7 @@ margin-bottom: 28px;
   margin: 10px 5px 0 ;
   padding: 5px;
   border-radius: 4px;
-  background-color: #4e4e4e;
+  background-color: #1A1A1A;
   float: left;
 }
 
@@ -239,32 +235,21 @@ margin-bottom: 28px;
   margin: 5px 0 0 0;
   padding: 5px;
   border-radius: 4px;
-  background-color: #4e4e4e;
-}
-
-.res-outer {
-
-  border: 1px solid #E3E3E3;
-  border-radius: 4px 4px 4px 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-  margin-bottom: 20px;
-  min-height: 20px;
-  padding: 5px;
-
+  background-color: #1A1A1A;
 }
 #navholder {
   margin: 5px 0 0 0;
   padding: 5px;
   border-radius: 4px;
-  background-color: #34676E;
+  background-color: #1A1A1A;
 }
 
 #blurb {
     color: whitesmoke;
-  width: 170px;
+  width: 150px;
   height: 60px;
-  float: left;
-  margin-left: 15px;
+  float: right;
+  padding-right: 10px;
 } a:hover {
     text-decoration: none;
   }
@@ -275,12 +260,10 @@ margin-bottom: 28px;
   float: left;
   margin: 6px 0 0 6px;
 
-
-}
-
-#thumb img {
+&:img {
   height: 100%;
   width: 100%;
+  }
 }
 
 .tags {
@@ -331,17 +314,13 @@ ul.type li a {
     text-decoration: none;
   }
 }
-     .sidecontent {
-       float: left;
-       clear: both;
-       width: 100%;
-     }
+
 
 #heading {
-  width: 200px;
-  float: left;
+  width: 150px;
+  float: right;
 }h6{
-   margin: 5px 5px 5px 15px;
+   margin: 5px;
   color: #EF5148;
   letter-spacing: 1px;
  }
@@ -461,16 +440,16 @@ margin: -150px 0 0 -150px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (origin
 //search dropdown
 
 #searchdrop label {
-  color: #ebebeb;
+  color: #333;
 }
 
 #searchdrop {
   padding: 10px;
   width: 300px;
   margin-top: -10px;
-  margin-left: 373px;
-  background-color: #9B2016;
-
+  margin-left: 256px;
+  background-color: #B94A48;
+  opacity: 0.9;
   position: fixed;
 
   z-index: 10;
@@ -490,7 +469,7 @@ select {
 #stickyside {
 
   position: fixed;
-
+  //background-color: #1A1A1A;
 }
 
 .all a {
@@ -541,24 +520,18 @@ html {
   overflow-y: scroll;
 }
 
-
-
 body {
   font-family: 'GreyscaleRegular', arial, helvetica, sans-serif;
   font-size: 17px;
   line-height: 18px;
   min-height: 100%;
-  background-color: #EEEFF0;
+  background: url('bookshelf.png') no-repeat fixed ;
   background-size: 100%;
   padding-top: 70px;
 }
-div.opaque { background-color: #fdfffe; }
+div.opaque { background-color: rgba(238, 238, 238, 0.89); }
 section {
   overflow: auto;
-}
-
-.navbar-inner {
-  background-image: linear-gradient(to bottom, #474747, #111111);
 }
 
 textarea {
